@@ -17,7 +17,8 @@ namespace TestDB
         {
             ContextDB db = new ContextDB();
             dbExceptionHandler exHandler = new dbExceptionHandler();
-            db.DeleteDiplom(250);
+            Supervisor sup = db.GetSupervisorById("Блинова Е.А.");
+            //db.DeleteDiplom(250);
             //try
             //{
             //    db.UpdSupervisor(s.Supervisor_id, new Supervisor() { Supervisor_id = "Блинчикова В.В." });
