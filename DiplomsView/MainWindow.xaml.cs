@@ -24,13 +24,9 @@ namespace DiplomsView
         public MainWindow()
         {
             InitializeComponent();
-            ContextDB db = new ContextDB();
-            dbExceptionHandler exHandler = new dbExceptionHandler();
-            Diplom dip = db.GetDiplomByID(20);
-            this.test_diplom.Header = dip.Topic + ", " + dip.Student_name;
-            //this.test_diplom. = (ControlTemplate)this.Resources["DiplomExpander"];
-
-
+            DiplomListFiller filler = new DiplomListFiller(this.diplomsList);
+            filler.Fill();
+            
 
         }
     }

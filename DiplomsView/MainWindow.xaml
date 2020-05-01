@@ -17,10 +17,12 @@
             <RowDefinition/>
             <RowDefinition  Height="20"/>
         </Grid.RowDefinitions>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="1" Grid.Row="1">
+            <StackPanel x:Name="diplomsList" />
+        </ScrollViewer>
         
         <TextBlock x:Name="error_Info" HorizontalAlignment="Left" Grid.Row="2" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="792" Grid.ColumnSpan="2" Height="20" FontSize="14"/>
-        <Expander x:Name="test_diplom"  HorizontalAlignment="Stretch" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.Column="1" FontFamily="Yu Gothic UI" FontSize="14" FontWeight="Bold"  Height="120" Style="{DynamicResource diplomExpander}" >
-            
-        </Expander>
+
+
     </Grid>
 </Window>
