@@ -23,3 +23,4 @@ D:\CourseProjOOP2020\TestDB\DiplomsView\bin\Debug\EntityFramework.SqlServer.xml
 D:\CourseProjOOP2020\TestDB\DiplomsView\obj\Debug\DiplomsView.csproj.CopyComplete
 D:\CourseProjOOP2020\TestDB\DiplomsView\obj\Debug\App.baml
 D:\CourseProjOOP2020\TestDB\DiplomsView\obj\Debug\Resources\dipExpander.baml
+D:\CourseProjOOP2020\TestDB\DiplomsView\obj\Debug\Resources\Styles.baml

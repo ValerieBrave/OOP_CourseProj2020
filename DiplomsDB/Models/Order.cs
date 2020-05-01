@@ -27,5 +27,10 @@ namespace DiplomsDB.Models
         {
             this.Order_id = or.Order_id;
         }
+
+        public override string ToString()
+        {
+            return this.Order_id;
+        }
     }
 }

@@ -11,19 +11,19 @@ namespace DiplomsView
 {
     public class DiplomListFiller
     {
-        ContextDB db = new ContextDB();
-        StackPanel stackpanel;
-        public DiplomListFiller(StackPanel s)
+        ContextDB db;
+        ListView listview;
+        public DiplomListFiller(ListView l, ContextDB c )
         {
-            stackpanel = s;
+            db = c;
+            listview = l;
         }
-        Expander getExpander(Diplom dip)
+        public Expander getExpander(Diplom dip)
         {
             Expander rc = new Expander();
             rc.Tag = dip.Diplom_id;
             Styler.dipExpanderStyle(rc);
             Styler.dipExpanderContent(rc, dip);
-            
             return rc;
         }
         public void Fill()
@@ -31,10 +31,8 @@ namespace DiplomsView
             try
             {
                 List<Diplom> alldips = db.GetAllDiplomsList();
-                foreach(Diplom d in alldips)
-                {
-                    stackpanel.Children.Add(getExpander(d));
-                }
+                foreach(Diplom d in alldips) listview.Items.Add(getExpander(d));
+
             }
             catch(Exception e)
             {

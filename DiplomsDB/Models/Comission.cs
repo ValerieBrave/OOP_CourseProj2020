@@ -25,5 +25,9 @@ namespace DiplomsDB.Models
         {
             this.Comission_id = co.Comission_id;
         }
+        public override string ToString()
+        {
+            return this.Comission_id;
+        }
     }
 }

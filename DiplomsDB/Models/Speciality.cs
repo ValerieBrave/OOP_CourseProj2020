@@ -25,5 +25,9 @@ namespace DiplomsDB.Models
         {
             this.Speciality_id = sp.Speciality_id;
         }
+        public override string ToString()
+        {
+            return this.Speciality_id;
+        }
     }
 }

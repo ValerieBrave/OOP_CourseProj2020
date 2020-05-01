@@ -25,5 +25,9 @@ namespace DiplomsDB.Models
         {
             this.Supervisor_id = su.Supervisor_id;
         }
+        public override string ToString()
+        {
+            return this.Supervisor_id;
+        }
     }
 }

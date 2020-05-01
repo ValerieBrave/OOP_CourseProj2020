@@ -25,5 +25,9 @@ namespace DiplomsDB.Models
         {
             this.Setter_id = se.Setter_id;
         }
+        public override string ToString()
+        {
+            return this.Setter_id;
+        }
     }
 }

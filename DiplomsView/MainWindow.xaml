@@ -5,24 +5,76 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DiplomsView"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    
+        Title="MainWindow" Height="900">
+
+    <Window.Resources>
+
+    </Window.Resources>
     <Grid ShowGridLines="True" >
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="450"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition/>
-            <RowDefinition  Height="20"/>
+            <RowDefinition  Height="30"/>
         </Grid.RowDefinitions>
-        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="1" Grid.Row="1">
-            <StackPanel x:Name="diplomsList" />
-        </ScrollViewer>
-        
+
+
+        <GroupBox Grid.Column="0" Grid.Row="1" BorderBrush="{x:Null}">
+            <Grid x:Name="filterGrid" ShowGridLines="True" Height="450" VerticalAlignment="Top" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition Height="80"/>
+                    
+                </Grid.RowDefinitions>
+                <CheckBox x:Name="check_Order" Content="Приказ"  Grid.Column="0" Grid.Row="0" Style="{StaticResource filter_check}" FontFamily="Century Gothic" VerticalAlignment="Center"/>
+                <CheckBox x:Name="check_Form"  Content="Форма"  Grid.Column="0" Grid.Row="1" Style="{StaticResource filter_check}" FontFamily="Century Gothic" VerticalAlignment="Center"/>
+                <CheckBox x:Name="check_Speciality"  Content="Специальность"  Grid.Column="0" Grid.Row="2" Style="{StaticResource filter_check}" FontFamily="Century Gothic" VerticalAlignment="Center"/>
+                <CheckBox x:Name="check_Student"  Content="Студент"  Grid.Column="0" Grid.Row="3" Style="{StaticResource filter_check}" FontFamily="Century Gothic" VerticalAlignment="Center"/>
+                <CheckBox x:Name="check_Supervisor"  Content="Руководитель"  Grid.Column="0" Grid.Row="4" Style="{StaticResource filter_check}" FontFamily="Century Gothic" VerticalAlignment="Center"/>
+                <CheckBox x:Name="check_Topic"  Content="Тема"  Grid.Column="0" Grid.Row="5" Style="{StaticResource filter_check}" FontFamily="Century Gothic" VerticalAlignment="Center"/>
+                <CheckBox x:Name="check_Setter"  Content="Нормоконтролер"  Grid.Column="0" Grid.Row="6" Style="{StaticResource filter_check}" FontFamily="Century Gothic" VerticalAlignment="Center"/>
+                <CheckBox x:Name="check_Superviewer"  Content="Рецензент"  Grid.Column="0" Grid.Row="7" Style="{StaticResource filter_check}" FontFamily="Century Gothic" VerticalAlignment="Center"/>
+                <CheckBox x:Name="check_Comission"  Content="Комиссия"  Grid.Column="0" Grid.Row="8" Style="{StaticResource filter_check}" FontFamily="Century Gothic" VerticalAlignment="Center"/>
+                <CheckBox x:Name="check_Deadline"  Content="Срок сдачи"  Grid.Column="0" Grid.Row="9" Style="{StaticResource filter_check}" FontFamily="Century Gothic" VerticalAlignment="Center"/>
+                <CheckBox x:Name="check_ExamDate"  Content="Экзамен"  Grid.Column="0" Grid.Row="10" Style="{StaticResource filter_check}" FontFamily="Century Gothic" VerticalAlignment="Center"/>
+                
+
+                <ComboBox x:Name="order_Select" Grid.Column="1" Grid.Row="0"/>
+                <ComboBox x:Name="spec_Select" Grid.Column="1" Grid.Row="2"/>
+                <ComboBox x:Name="supervisor_Select" Grid.Column="1" Grid.Row="4"/>
+                <ComboBox x:Name="setter_Select" Grid.Column="1" Grid.Row="6"/>
+                <ComboBox x:Name="reviewer_Select" Grid.Column="1" Grid.Row="7"/>
+                <ComboBox x:Name="comission_Select" Grid.Column="1" Grid.Row="8"/>
+                <RadioButton x:Name="form_w_Select" Content="работа" Grid.Column="1" HorizontalAlignment="Left" Margin="5,10,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+                <RadioButton x:Name="form_p_Select" Content="проект" Grid.Column="1" HorizontalAlignment="Left" Margin="78,10,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+                <TextBox x:Name="student_Select" Grid.Column="1" Grid.Row="3"/>
+                <TextBox x:Name="topic_Select" Grid.Column="1" Grid.Row="5"/>
+                <DatePicker x:Name="deadline_Select" Grid.Column="1" Grid.Row="9"/>
+                <DatePicker x:Name="examdate_Select" Grid.Column="1" Grid.Row="10"/>
+
+                <Button x:Name="btn_Search" Content="Поиск" Grid.ColumnSpan="2" Grid.Row="11" Height="30" Width="400" Click="btn_Search_Click"/>
+
+            </Grid>
+
+        </GroupBox>
+        <ListView x:Name="diplomsList" Grid.Column="1" Grid.Row="1"></ListView>
         <TextBlock x:Name="error_Info" HorizontalAlignment="Left" Grid.Row="2" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="792" Grid.ColumnSpan="2" Height="20" FontSize="14"/>
-
-
     </Grid>
 </Window>

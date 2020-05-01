@@ -25,5 +25,9 @@ namespace DiplomsDB.Models
         {
             this.Chairman_id = ch.Chairman_id;
         }
+        public override string ToString()
+        {
+            return this.Chairman_id;
+        }
     }
 }

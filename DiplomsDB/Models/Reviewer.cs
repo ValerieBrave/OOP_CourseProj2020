@@ -20,12 +20,14 @@ namespace DiplomsDB.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Diplom> Diploms { get; set; }
-
-       
-
+        
         public void Update(Reviewer r)
         {
             this.Reviewer_id = r.Reviewer_id;
+        }
+        public override string ToString()
+        {
+            return this.Reviewer_id;
         }
     }
 }
