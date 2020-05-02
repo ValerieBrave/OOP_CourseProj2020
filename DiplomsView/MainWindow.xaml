@@ -50,7 +50,7 @@
                 <CheckBox x:Name="check_Supervisor"  Content="Руководитель"  Grid.Column="0" Grid.Row="4" Style="{StaticResource filter_check}" FontFamily="Century Gothic" VerticalAlignment="Center"/>
                 <CheckBox x:Name="check_Topic"  Content="Тема"  Grid.Column="0" Grid.Row="5" Style="{StaticResource filter_check}" FontFamily="Century Gothic" VerticalAlignment="Center"/>
                 <CheckBox x:Name="check_Setter"  Content="Нормоконтролер"  Grid.Column="0" Grid.Row="6" Style="{StaticResource filter_check}" FontFamily="Century Gothic" VerticalAlignment="Center"/>
-                <CheckBox x:Name="check_Superviewer"  Content="Рецензент"  Grid.Column="0" Grid.Row="7" Style="{StaticResource filter_check}" FontFamily="Century Gothic" VerticalAlignment="Center"/>
+                <CheckBox x:Name="check_Reviewer"  Content="Рецензент"  Grid.Column="0" Grid.Row="7" Style="{StaticResource filter_check}" FontFamily="Century Gothic" VerticalAlignment="Center"/>
                 <CheckBox x:Name="check_Comission"  Content="Комиссия"  Grid.Column="0" Grid.Row="8" Style="{StaticResource filter_check}" FontFamily="Century Gothic" VerticalAlignment="Center"/>
                 <CheckBox x:Name="check_Deadline"  Content="Срок сдачи"  Grid.Column="0" Grid.Row="9" Style="{StaticResource filter_check}" FontFamily="Century Gothic" VerticalAlignment="Center"/>
                 <CheckBox x:Name="check_ExamDate"  Content="Экзамен"  Grid.Column="0" Grid.Row="10" Style="{StaticResource filter_check}" FontFamily="Century Gothic" VerticalAlignment="Center"/>

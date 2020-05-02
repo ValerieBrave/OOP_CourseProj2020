@@ -17,7 +17,7 @@ namespace DiplomsView
             db = c;
             filter = f;
         }
-        public void Fill(ComboBox orders, ComboBox spec, ComboBox supers, ComboBox setters, ComboBox revs, ComboBox comission)
+        public void Fill(ComboBox orders, ComboBox spec, ComboBox supers, ComboBox setters, ComboBox revs, ComboBox comission, RadioButton def)
         {
             foreach (Order o in db.GetAllOrdersList()) orders.Items.Add(o);
             foreach (Speciality s in db.GetAllSpecialitiesList()) spec.Items.Add(s);
@@ -31,6 +31,7 @@ namespace DiplomsView
             setters.SelectedIndex = 0;
             revs.SelectedIndex = 0;
             comission.SelectedIndex = 0;
+            def.IsChecked = true;
         }
     }
 }

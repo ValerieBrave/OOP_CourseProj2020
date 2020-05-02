@@ -28,7 +28,7 @@ namespace DiplomsView
         }
         public static void dipExpanderContent(Expander expander, Diplom diplom)
         {
-            expander.Header = diplom.Topic + ", " + diplom.Student_name+ ", " + diplom.Order_id;
+            expander.Header = diplom.Topic + ", "+", "+diplom.Form+ ", " + diplom.Student_name+ ", " + diplom.Order_id;
             TextBlock supervisor = new TextBlock() { Text = "Руководитель: " + diplom.Supervisor_id };
             TextBlock comission = new TextBlock() { Text = "Комиссия: " + diplom.Comission_id };
             TextBlock reviewer = new TextBlock() { Text = "Рецензент: " + diplom.Reviewer_id };
