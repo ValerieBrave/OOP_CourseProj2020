@@ -3,6 +3,10 @@
                     xmlns:local="clr-namespace:DiplomsView.Resources">
     <Style x:Key="filter_check" TargetType="CheckBox">
         <Setter Property="FontSize" Value="14"/>
-       
+    </Style>
+    <Style x:Key="add_combos" TargetType="ComboBox">
+        <Setter Property="Width" Value="250"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
     </Style>
 </ResourceDictionary>

@@ -65,8 +65,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddDiplom.xaml.cs">
+      <DependentUpon>AddDiplom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddFormFiller.cs" />
     <Compile Include="FilterFiller.cs" />
     <Compile Include="Styler.cs" />
+    <Page Include="AddDiplom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

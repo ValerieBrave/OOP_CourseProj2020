@@ -22,7 +22,7 @@
         </Grid.RowDefinitions>
 
 
-        <GroupBox Grid.Column="0" Grid.Row="1" BorderBrush="{x:Null}">
+        <GroupBox Grid.Column="0" Grid.Row="1" BorderBrush="{x:Null}" Height="450" VerticalAlignment="Top">
             <Grid x:Name="filterGrid" ShowGridLines="True" Height="450" VerticalAlignment="Top" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -74,7 +74,9 @@
             </Grid>
 
         </GroupBox>
+        
         <ListView x:Name="diplomsList" Grid.Column="1" Grid.Row="1"></ListView>
         <TextBlock x:Name="error_Info" HorizontalAlignment="Left" Grid.Row="2" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="792" Grid.ColumnSpan="2" Height="20" FontSize="14"/>
+        <Button x:Name="btn_Add" Content="Добавить" HorizontalAlignment="Left" Margin="22,533,0,0" Grid.Row="1" VerticalAlignment="Top" Width="76" Height="50" Click="btn_Add_Click"/>
     </Grid>
 </Window>

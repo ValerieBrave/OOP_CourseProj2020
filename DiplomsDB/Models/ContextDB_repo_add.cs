@@ -13,6 +13,7 @@ namespace DiplomsDB.Models
             Diplom rc = null; 
             this.Diploms.Add(dip);
             rc = dip;
+            this.SaveChanges();
             return rc;
         }
         public Order AddOrder(Order or)
@@ -20,6 +21,7 @@ namespace DiplomsDB.Models
             Order rc = null;
             this.Orders.Add(or);
             rc = or;
+            this.SaveChanges();
             return rc;
         }
         public Reviewer AddReviewer(Reviewer rev)
@@ -27,6 +29,7 @@ namespace DiplomsDB.Models
             Reviewer rc = null;
             this.Reviewers.Add(rev);
             rc = rev;
+            this.SaveChanges();
             return rc;
         }
         public Setter AddSetter(Setter se)
@@ -34,6 +37,7 @@ namespace DiplomsDB.Models
             Setter rc = null;
             this.Setters.Add(se);
             rc = se;
+            this.SaveChanges();
             return rc;
         }
         public Speciality AddSpeciality(Speciality sp)
@@ -41,6 +45,7 @@ namespace DiplomsDB.Models
             Speciality rc = null;
             this.Specialities.Add(sp);
             rc = sp;
+            this.SaveChanges();
             return rc;
         }
         public Supervisor AddSupervisor(Supervisor su)
@@ -48,6 +53,7 @@ namespace DiplomsDB.Models
             Supervisor rc = null;
             this.Supervisors.Add(su);
             rc = su;
+            this.SaveChanges();
             return rc;
         }
         public Chairman AddChairman(Chairman ch)
@@ -55,6 +61,7 @@ namespace DiplomsDB.Models
             Chairman rc = null;
             this.Chairmen.Add(ch);
             rc = ch;
+            this.SaveChanges();
             return rc;
         }
         public Comission AddComission(Comission co)
@@ -62,6 +69,7 @@ namespace DiplomsDB.Models
             Comission rc = null;
             this.Comissions.Add(co);
             rc = co;
+            this.SaveChanges();
             return rc;
         }
     }

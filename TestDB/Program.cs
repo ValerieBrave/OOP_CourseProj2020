@@ -18,6 +18,9 @@ namespace TestDB
             ContextDB db = new ContextDB();
             dbExceptionHandler exHandler = new dbExceptionHandler();
             Supervisor sup = db.GetSupervisorById("Блинова Е.А.");
+            Order or = new Order() { Order_id = "--не назначен--" };
+            Comission com = new Comission() { Comission_id = "--не назначен--" };
+            db.AddComission(com);
             //db.DeleteDiplom(250);
             //try
             //{

@@ -131,5 +131,12 @@ namespace DiplomsView
             foreach (var dip in dips) this.diplomsList.Items.Add(list_filler.getExpander((Diplom)dip));
             this.diplomsList.Items.Refresh();
         }
+
+        private void btn_Add_Click(object sender, RoutedEventArgs e)
+        {
+            AddDiplom ad = new AddDiplom(this.db);
+            
+            ad.ShowDialog();
+        }
     }
 }
