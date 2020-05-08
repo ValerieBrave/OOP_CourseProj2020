@@ -51,8 +51,21 @@ namespace DiplomsView
             {
                 chair.Items.Add(c);
                 if (c.Chairman_id.Equals("--не назначен--")) chair.SelectedItem = c;
+
             }
             def.IsChecked = true;
         }
+
+        //public bool Check(TextBox mark, TextBox position, DatePicker deadline, DatePicker exam)
+        //{
+        //    bool rc = true;
+        //    int m, p;
+        //    if(int.TryParse(mark.Text, out m))
+        //    {
+        //        if (m < 0 || m > 10) throw new Exception("Невозможное значение оценки");
+        //    }
+        //    else throw new Exception("Ошибка в записи оценки");
+        //    return rc;
+        //}
     }
 }

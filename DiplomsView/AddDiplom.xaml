@@ -15,7 +15,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
         <Border Grid.Column="1" Grid.Row="1" BorderThickness="1" BorderBrush="Aqua">
             <Grid ShowGridLines="True" >
@@ -27,7 +27,7 @@
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
-                    <RowDefinition/>
+                    <RowDefinition />
                 </Grid.RowDefinitions>
                 <ComboBox x:Name="order_select" Grid.Row="0"  Margin="10,10,321,10"/>
                 <RadioButton x:Name="form_p_select" Content="проект" Margin="312,26,168,12" FontSize="16" />
@@ -47,5 +47,9 @@
                 <Button x:Name="btn_Add" Content="ДОБАВИТЬ" Grid.Row="7" Click="btn_Add_Click"/>
             </Grid>
         </Border>
+        <ScrollViewer Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3">
+            <TextBlock x:Name="error_info"  />
+        </ScrollViewer>
+        
     </Grid>
 </Window>

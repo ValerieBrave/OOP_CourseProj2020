@@ -20,7 +20,8 @@ namespace TestDB
             Supervisor sup = db.GetSupervisorById("Блинова Е.А.");
             Order or = new Order() { Order_id = "--не назначен--" };
             Comission com = new Comission() { Comission_id = "--не назначен--" };
-            db.AddComission(com);
+            Chairman ch = new Chairman() { Chairman_id = "--не назначен--" };
+            db.AddChairman(ch);
             //db.DeleteDiplom(250);
             //try
             //{

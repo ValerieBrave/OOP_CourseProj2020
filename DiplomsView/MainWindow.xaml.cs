@@ -22,13 +22,16 @@ namespace DiplomsView
     public partial class MainWindow : Window
     {
         ContextDB db;
+        dbExceptionHandler ex_handler;
         DiplomListFiller list_filler;
+        FilterFiller filter_filler;
         public MainWindow()
         {
             InitializeComponent();
             db = new ContextDB();
+            ex_handler = new dbExceptionHandler();
             list_filler = new DiplomListFiller(this.diplomsList, db);
-            FilterFiller filter_filler = new FilterFiller(this.filterGrid, db);
+            filter_filler = new FilterFiller(this.filterGrid, db);
             list_filler.Fill();
             filter_filler.Fill(this.order_Select, this.spec_Select, this.supervisor_Select, this.setter_Select, this.reviewer_Select, this.comission_Select, this.form_p_Select);
 
@@ -134,7 +137,7 @@ namespace DiplomsView
 
         private void btn_Add_Click(object sender, RoutedEventArgs e)
         {
-            AddDiplom ad = new AddDiplom(this.db);
+            AddDiplom ad = new AddDiplom(this.db, ex_handler);
             
             ad.ShowDialog();
         }

@@ -27,5 +27,10 @@ namespace DiplomsDB.Models
             this.Protocol = ex.InnerException.Message ?? "Неизвестная ошибка";
             return true;
         }
+        public bool WriteProtocol(Exception ex)
+        {
+            this.Protocol = ex.Message ?? "Неизвестная ошибка";
+            return true;
+        }
     }
 }
