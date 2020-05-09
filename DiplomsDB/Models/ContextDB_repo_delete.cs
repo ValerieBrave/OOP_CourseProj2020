@@ -10,8 +10,10 @@ namespace DiplomsDB.Models
     {
         public void DeleteDiplom(int id)
         {
+            string topic = this.GetDiplomByID(id).Topic;
             this.Diploms.Remove(this.GetDiplomByID(id));
             this.SaveChanges();
+            this.diplomDeleted(topic);
         }
     }
 }

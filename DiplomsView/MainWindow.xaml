@@ -18,7 +18,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition/>
-            <RowDefinition  Height="30"/>
+            <RowDefinition  Height="70"/>
         </Grid.RowDefinitions>
 
 
@@ -76,7 +76,9 @@
         </GroupBox>
         
         <ListView x:Name="diplomsList" Grid.Column="1" Grid.Row="1"></ListView>
-        <TextBlock x:Name="error_Info" HorizontalAlignment="Left" Grid.Row="2" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="792" Grid.ColumnSpan="2" Height="20" FontSize="14"/>
+        
         <Button x:Name="btn_Add" Content="Добавить" HorizontalAlignment="Left" Margin="22,533,0,0" Grid.Row="1" VerticalAlignment="Top" Width="76" Height="50" Click="btn_Add_Click"/>
+        <TextBlock x:Name="error_info" Grid.Row="2" Grid.ColumnSpan="2"/>
+        <Button x:Name="btn_Delete" Content="Удалить" HorizontalAlignment="Left" Margin="103,533,0,0" Grid.Row="1" VerticalAlignment="Top" Width="76" Height="50" Click="btn_Delete_Click"/>
     </Grid>
 </Window>

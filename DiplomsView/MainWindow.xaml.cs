@@ -25,13 +25,23 @@ namespace DiplomsView
         dbExceptionHandler ex_handler;
         DiplomListFiller list_filler;
         FilterFiller filter_filler;
+        
+        
         public MainWindow()
         {
             InitializeComponent();
+            //----creating objects-------
             db = new ContextDB();
             ex_handler = new dbExceptionHandler();
-            list_filler = new DiplomListFiller(this.diplomsList, db);
+            list_filler = new DiplomListFiller(this.diplomsList, db, ex_handler);
             filter_filler = new FilterFiller(this.filterGrid, db);
+            //----subscribing--------------------------------------------------
+            db.diplomAdded += this.RefreshList;
+            db.diplomAdded += this.ShowDipAddSuccess;
+            db.diplomDeleted += this.RefreshList;
+            db.diplomDeleted += this.ShowDipDelSuccess;
+            ex_handler.Error += this.ShowProtocol;
+            //----rendering---------------------------------------------------
             list_filler.Fill();
             filter_filler.Fill(this.order_Select, this.spec_Select, this.supervisor_Select, this.setter_Select, this.reviewer_Select, this.comission_Select, this.form_p_Select);
 
@@ -137,9 +147,56 @@ namespace DiplomsView
 
         private void btn_Add_Click(object sender, RoutedEventArgs e)
         {
-            AddDiplom ad = new AddDiplom(this.db, ex_handler);
+            AddDiplom add_form = new AddDiplom(this.db, ex_handler);
+            db.diplomAdded += add_form.ShowDipAddSuccess;
+            db.diplomDeleted += add_form.ShowDipDelSuccess;
+            ex_handler.Error += add_form.ShowProtocol;
+            add_form.ShowDialog();
+        }
+
+        public void ShowProtocol(string pr)
+        {
+            this.error_info.Text = pr + this.error_info.Text;
+        }
+
+        public void ShowDipAddSuccess(string topic)
+        {
+            this.error_info.Text = "Добавлен новый диплом " +
+                (topic.Equals("") ? "" : "'" + topic + "'") +
+                '\n' + this.error_info.Text;
+        }
+
+        public void ShowDipDelSuccess(string topic)
+        {
+            this.error_info.Text = "Удален диплом " +
+                (topic.Equals("") ? "" : "'" + topic + "'") +
+                '\n' + this.error_info.Text;
+        }
+
+        public void RefreshList(string topic)
+        {
+            try
+            {
+                var dips = this.db.Database.SqlQuery<Diplom>("select * from Diploms");
+                this.diplomsList.Items.Clear();
+                foreach (var dip in dips) this.diplomsList.Items.Add(list_filler.getExpander((Diplom)dip));
+                this.diplomsList.Items.Refresh();
+            }
+            catch(Exception ex)
+            {
+                ex_handler.WriteProtocol(ex);
+            }
+        }
+
+        private void btn_Delete_Click(object sender, RoutedEventArgs e)
+        {
+            if(this.diplomsList.SelectedItem != null)
+            {
+                SureToDel sure_del = new SureToDel(db, ex_handler);
+                sure_del.selected = (Expander)this.diplomsList.SelectedItem;
+                sure_del.ShowDialog();
+            }
             
-            ad.ShowDialog();
         }
     }
 }

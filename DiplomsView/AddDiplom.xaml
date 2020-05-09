@@ -47,7 +47,7 @@
                 <Button x:Name="btn_Add" Content="ДОБАВИТЬ" Grid.Row="7" Click="btn_Add_Click"/>
             </Grid>
         </Border>
-        <ScrollViewer Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3">
+        <ScrollViewer  Grid.Row="2" Grid.ColumnSpan="3">
             <TextBlock x:Name="error_info"  />
         </ScrollViewer>
         

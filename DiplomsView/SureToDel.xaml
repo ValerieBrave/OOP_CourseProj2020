@@ -1,0 +1,22 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DiplomsView"
+        xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="DiplomsView.SureToDel"
+        mc:Ignorable="d"
+        Title="SureToDel" Height="350" Width="350">
+    <Grid>
+        <TextBlock Text="Удалить выбранный диплом?" TextAlignment="Center" Margin="0,37,0,203">
+            <TextBlock.FontSize>
+                <System:Double>16</System:Double>
+            </TextBlock.FontSize>
+            <TextBlock.FontFamily>
+                <FontFamily>Candara</FontFamily>
+            </TextBlock.FontFamily>
+        </TextBlock>
+        <TextBlock x:Name="dip_info" Height="200" Margin="0,62,0,57" FontFamily="Candara" FontSize="14"/>
+        <Button x:Name="btn_DelDip" Height="40" Width="90" Margin="119,267,133,12" Click="btn_DelDip_Click"/>
+    </Grid>
+</Window>

@@ -71,6 +71,9 @@
     <Compile Include="AddFormFiller.cs" />
     <Compile Include="FilterFiller.cs" />
     <Compile Include="Styler.cs" />
+    <Compile Include="SureToDel.xaml.cs">
+      <DependentUpon>SureToDel.xaml</DependentUpon>
+    </Compile>
     <Page Include="AddDiplom.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -93,6 +96,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SureToDel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

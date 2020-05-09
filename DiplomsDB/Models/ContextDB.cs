@@ -11,7 +11,13 @@ namespace DiplomsDB.Models
             : base("name=diploms")
         {
         }
-
+        //------delegates
+        public delegate void onDipAdd(string topic);
+        public delegate void onDipDelete(string topic);
+        //------events
+        public event onDipAdd diplomAdded;
+        public event onDipDelete diplomDeleted;
+        //------------
         public virtual DbSet<Chairman> Chairmen { get; set; }
         public virtual DbSet<Comission> Comissions { get; set; }
         public virtual DbSet<Diplom> Diploms { get; set; }

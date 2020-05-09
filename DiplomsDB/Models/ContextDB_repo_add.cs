@@ -13,7 +13,9 @@ namespace DiplomsDB.Models
             Diplom rc = null; 
             this.Diploms.Add(dip);
             rc = dip;
+            
             this.SaveChanges();
+            if (this.diplomAdded != null) this.diplomAdded(dip.Topic);
             return rc;
         }
         public Order AddOrder(Order or)

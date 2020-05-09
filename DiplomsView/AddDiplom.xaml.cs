@@ -31,7 +31,9 @@ namespace DiplomsView
         {
             InitializeComponent();
             db = c;
+            //db.diplomAdded += this.ShowDipAddSuccess;
             ex_handler = handler;
+            //ex_handler.Error += this.ShowProtocol;
             filler = new AddFormFiller(this.db);
             filler.FillForm(this.order_select,
                             this.spec_select,
@@ -41,11 +43,12 @@ namespace DiplomsView
                             this.comission_select,
                             this.form_p_select,
                             this.chairman_select);
+            this.error_info.Text = ex_handler.Protocol;
         }
 
         private void btn_Add_Click(object sender, RoutedEventArgs e)
         {
-            //this.examdate_select.BorderBrush = new SolidColorBrush(Colors.Red);
+            bool correct = true;
             Order d_or = new Order();
             String d_form = "", d_student = "", d_topic = "";
             Speciality d_spec = new Speciality();
@@ -77,7 +80,9 @@ namespace DiplomsView
                     if (this.deadline_select.SelectedDate.Value >= this.examdate_select.SelectedDate.Value)
                     {
                         this.deadline_select.BorderBrush = new SolidColorBrush(Colors.Red);
-                        error_messages = "Некорректный срок предоставления / дата защиты" + '\n' + error_messages;
+                        ex_handler.Protocol = "Некорректный срок предоставления / дата защиты";
+                        correct = false;
+                        //error_messages = "Некорректный срок предоставления / дата защиты" + '\n' + error_messages;
                         //throw new Exception("Некорректный срок предоставления / дата защиты");
                     }
                 }
@@ -89,12 +94,19 @@ namespace DiplomsView
                     if (d_mark < 0 || d_mark > 10)
                     {
                         this.mark_select.BorderBrush = new SolidColorBrush(Colors.Red);
-                        error_messages = "Задано невозможное значение оценки" + '\n' + error_messages;
+                        ex_handler.Protocol = "Задано невозможное значение оценки";
+                        correct = false;
+                        //error_messages = "Задано невозможное значение оценки" + '\n' + error_messages;
                         //throw new Exception("Задано невозможное значение оценки");
                     }
                 }
                 else if (this.mark_select.Text == "") d_mark = 0;
-                else error_messages = "Ошибка в записи оценки" + '\n' + error_messages;
+                else
+                {
+                    ex_handler.Protocol = "Ошибка в записи оценки";
+                    correct = false;
+                }
+                    //error_messages = "Ошибка в записи оценки" + '\n' + error_messages;
                 //throw new Exception("Ошибка в записи оценки");
                 if (this.position_select.Text != "" && int.TryParse(this.position_select.Text, out d_pos))
                 {
@@ -102,12 +114,19 @@ namespace DiplomsView
                     if (d_pos < 0)
                     {
                         this.mark_select.BorderBrush = new SolidColorBrush(Colors.Red);
-                        error_messages = "Задано невозможное место в очереди" + '\n' + error_messages;
+                        ex_handler.Protocol = "Задано невозможное место в очереди";
+                        correct = false;
+                        //error_messages = "Задано невозможное место в очереди" + '\n' + error_messages;
                         //throw new Exception("Задано невозможное место в очереди");
                     }
                 }
                 else if (this.position_select.Text == "") d_pos = 0;
-                else error_messages = "Ошибка в записи места" + '\n' + error_messages;
+                else
+                {
+                    ex_handler.Protocol = "Ошибка в записи места";
+                    correct = false;
+                }
+                    //error_messages = "Ошибка в записи места" + '\n' + error_messages;
                 //throw new Exception("Ошибка в записи места");
 
             }
@@ -119,7 +138,7 @@ namespace DiplomsView
             {
                 ex_handler.Protocol = error_messages;
                 this.error_info.Text = ex_handler.Protocol;
-                if(error_messages.Equals(""))       // значит все правильно
+                if(correct)       // значит все правильно
                 {
                     try
                     {
@@ -150,6 +169,23 @@ namespace DiplomsView
                 }
             }
             // TODO валидация + все остальные
+        }
+
+        public void ShowProtocol(string pr)
+        {
+            this.error_info.Text = pr + this.error_info.Text;
+        }
+        public void ShowDipAddSuccess(string topic)
+        {
+            this.error_info.Text = "Добавлен новый диплом " +
+                (topic.Equals("")? "" : "'"+topic+"'") + 
+                '\n' + this.error_info.Text;
+        }
+        public void ShowDipDelSuccess(string topic)
+        {
+            this.error_info.Text = "Удален диплом " +
+                (topic.Equals("") ? "" : "'" + topic + "'") +
+                '\n' + this.error_info.Text;
         }
     }
 }

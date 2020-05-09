@@ -26,3 +26,5 @@ D:\CourseProjOOP2020\TestDB\DiplomsView\obj\Debug\Resources\dipExpander.baml
 D:\CourseProjOOP2020\TestDB\DiplomsView\obj\Debug\Resources\Styles.baml
 D:\CourseProjOOP2020\TestDB\DiplomsView\obj\Debug\AddDiplom.g.cs
 D:\CourseProjOOP2020\TestDB\DiplomsView\obj\Debug\AddDiplom.baml
+D:\CourseProjOOP2020\TestDB\DiplomsView\obj\Debug\SureToDel.g.cs
+D:\CourseProjOOP2020\TestDB\DiplomsView\obj\Debug\SureToDel.baml

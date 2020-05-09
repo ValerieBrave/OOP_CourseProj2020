@@ -13,10 +13,12 @@ namespace DiplomsView
     {
         ContextDB db;
         ListView listview;
-        public DiplomListFiller(ListView l, ContextDB c )
+        dbExceptionHandler handler;
+        public DiplomListFiller(ListView l, ContextDB c, dbExceptionHandler h )
         {
             db = c;
             listview = l;
+            handler = h;
         }
         public Expander getExpander(Diplom dip)
         {
@@ -32,12 +34,12 @@ namespace DiplomsView
             {
                 List<Diplom> alldips = db.GetAllDiplomsList();
                 foreach(Diplom d in alldips) listview.Items.Add(getExpander(d));
-
             }
-            catch(Exception e)
+            catch(Exception ex)
             {
-
+                handler.WriteProtocol(ex);
             }
         }
+        
     }
 }
