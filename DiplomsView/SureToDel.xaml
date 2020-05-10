@@ -16,7 +16,7 @@
                 <FontFamily>Candara</FontFamily>
             </TextBlock.FontFamily>
         </TextBlock>
-        <TextBlock x:Name="dip_info" Height="200" Margin="0,62,0,57" FontFamily="Candara" FontSize="14"/>
-        <Button x:Name="btn_DelDip" Height="40" Width="90" Margin="119,267,133,12" Click="btn_DelDip_Click"/>
+        <TextBlock x:Name="dip_info" Height="200" Margin="0,62,0,57" FontFamily="Candara" FontSize="14" TextAlignment="Center"/>
+        <Button x:Name="btn_DelDip" Content="Удалить" Height="40" Width="90" Margin="126,262,126,17" Click="btn_DelDip_Click"/>
     </Grid>
 </Window>

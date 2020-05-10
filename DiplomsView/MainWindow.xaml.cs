@@ -40,6 +40,8 @@ namespace DiplomsView
             db.diplomAdded += this.ShowDipAddSuccess;
             db.diplomDeleted += this.RefreshList;
             db.diplomDeleted += this.ShowDipDelSuccess;
+            db.diplomUpdated += this.RefreshList;
+            db.diplomUpdated += this.ShowDipUpdSuccess;
             ex_handler.Error += this.ShowProtocol;
             //----rendering---------------------------------------------------
             list_filler.Fill();
@@ -147,11 +149,12 @@ namespace DiplomsView
 
         private void btn_Add_Click(object sender, RoutedEventArgs e)
         {
-            AddDiplom add_form = new AddDiplom(this.db, ex_handler);
+            AddEditDiplom add_form = new AddEditDiplom(this.db, ex_handler);
             db.diplomAdded += add_form.ShowDipAddSuccess;
             db.diplomDeleted += add_form.ShowDipDelSuccess;
+            db.diplomUpdated += add_form.ShowDipUpdSuccess;
             ex_handler.Error += add_form.ShowProtocol;
-            add_form.ShowDialog();
+            add_form.Show();
         }
 
         public void ShowProtocol(string pr)
@@ -170,6 +173,13 @@ namespace DiplomsView
         {
             this.error_info.Text = "Удален диплом " +
                 (topic.Equals("") ? "" : "'" + topic + "'") +
+                '\n' + this.error_info.Text;
+        }
+
+        public void ShowDipUpdSuccess(string info)
+        {
+            this.error_info.Text = "Изменен диплом " +
+                info +
                 '\n' + this.error_info.Text;
         }
 
@@ -192,11 +202,24 @@ namespace DiplomsView
         {
             if(this.diplomsList.SelectedItem != null)
             {
-                SureToDel sure_del = new SureToDel(db, ex_handler);
-                sure_del.selected = (Expander)this.diplomsList.SelectedItem;
+                SureToDel sure_del = new SureToDel(db, ex_handler, (Expander)this.diplomsList.SelectedItem);
+                
                 sure_del.ShowDialog();
             }
             
+        }
+
+        private void btn_Edit_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.diplomsList.SelectedItem != null)
+            {
+                AddEditDiplom edit_dip = new AddEditDiplom(this.db, this.ex_handler, (Expander)this.diplomsList.SelectedItem);
+                db.diplomAdded += edit_dip.ShowDipAddSuccess;
+                db.diplomDeleted += edit_dip.ShowDipDelSuccess;
+                db.diplomUpdated += edit_dip.ShowDipUpdSuccess;
+                ex_handler.Error += edit_dip.ShowProtocol;
+                edit_dip.ShowDialog();
+            }
         }
     }
 }

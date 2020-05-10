@@ -11,9 +11,12 @@ namespace DiplomsDB.Models
         public bool UpdDiplom(int oldid, Diplom newdip)
         {
             bool rc = true;
+            string info = "";
             Diplom olddip = this.GetDiplomByID(oldid);
+            info = olddip.Order_id + "-" + olddip.Speciality_id + "-рук." + olddip.Supervisor_id + "-студ." + olddip.Student_name;
             olddip.Update(newdip);
             this.SaveChanges();
+            if (this.diplomUpdated != null) this.diplomUpdated(info);
             return rc;
         }
         public bool UpdOrder(string oldid, Order or)

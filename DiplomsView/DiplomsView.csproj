@@ -65,16 +65,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AddDiplom.xaml.cs">
-      <DependentUpon>AddDiplom.xaml</DependentUpon>
+    <Compile Include="AddEditDiplom.xaml.cs">
+      <DependentUpon>AddEditDiplom.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddFormFiller.cs" />
+    <Compile Include="AddEditFormFiller.cs" />
     <Compile Include="FilterFiller.cs" />
     <Compile Include="Styler.cs" />
     <Compile Include="SureToDel.xaml.cs">
       <DependentUpon>SureToDel.xaml</DependentUpon>
     </Compile>
-    <Page Include="AddDiplom.xaml">
+    <Page Include="AddEditDiplom.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -80,5 +80,6 @@
         <Button x:Name="btn_Add" Content="Добавить" HorizontalAlignment="Left" Margin="22,533,0,0" Grid.Row="1" VerticalAlignment="Top" Width="76" Height="50" Click="btn_Add_Click"/>
         <TextBlock x:Name="error_info" Grid.Row="2" Grid.ColumnSpan="2"/>
         <Button x:Name="btn_Delete" Content="Удалить" HorizontalAlignment="Left" Margin="103,533,0,0" Grid.Row="1" VerticalAlignment="Top" Width="76" Height="50" Click="btn_Delete_Click"/>
+        <Button x:Name="btn_Edit" Content="Редактировать" HorizontalAlignment="Left" Margin="184,533,0,0" Grid.Row="1" VerticalAlignment="Top" Width="76" Height="50" Click="btn_Edit_Click"/>
     </Grid>
 </Window>
