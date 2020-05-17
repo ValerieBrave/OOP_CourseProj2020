@@ -15,5 +15,11 @@ namespace DiplomsDB.Models
             this.SaveChanges();
             this.diplomDeleted(topic);
         }
+        public void DeleteSupervisor(string id)
+        {
+            this.Supervisors.Remove(this.GetSupervisorById(id));
+            this.SaveChanges();
+            this.supDeleted(id);
+        }
     }
 }

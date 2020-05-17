@@ -342,5 +342,9 @@ namespace DiplomsView
                 info +
                 '\n' + this.error_info.Text;
         }
+        public void ShowSupDelSuccess(string id)
+        {
+            this.error_info.Text = "Удален руководитель " + id + '\n' + this.error_info.Text;
+        }
     }
 }

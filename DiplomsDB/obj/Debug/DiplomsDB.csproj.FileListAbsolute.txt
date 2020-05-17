@@ -25,3 +25,4 @@ D:\CourseProjOOP2020\TestDB\DiplomsDB\obj\Debug\DiplomsDB.csproj.CoreCompileInpu
 D:\CourseProjOOP2020\TestDB\DiplomsDB\obj\Debug\DiplomsDB.csproj.CopyComplete
 D:\CourseProjOOP2020\TestDB\DiplomsDB\obj\Debug\DiplomsDB.dll
 D:\CourseProjOOP2020\TestDB\DiplomsDB\obj\Debug\DiplomsDB.pdb
+D:\CourseProjOOP2020\TestDB\DiplomsDB\obj\Debug\DiplomsDB.csprojAssemblyReference.cache

@@ -30,7 +30,10 @@ namespace DiplomsDB.Models
         }
         public List<Reviewer> GetAllReviewersList()
         {
-            return this.Reviewers.ToList();
+            List<Reviewer> rc = new List<Reviewer>();
+            var revs = this.Database.SqlQuery<Reviewer>("select * from Reviewers");
+            foreach (Reviewer r in revs) rc.Add(r);
+            return rc;
         }
         public List<Comission> GetAllComissionsList()
         {

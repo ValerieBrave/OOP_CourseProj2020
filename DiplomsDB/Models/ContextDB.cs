@@ -15,10 +15,12 @@ namespace DiplomsDB.Models
         public delegate void onDipAdd(string topic);
         public delegate void onDipDelete(string topic);
         public delegate void onDipUpdate(string info);
+        public delegate void onSupDelete(string id);
         //------events
         public event onDipAdd diplomAdded;
         public event onDipDelete diplomDeleted;
         public event onDipUpdate diplomUpdated;
+        public event onSupDelete supDeleted;
         //------------
         public virtual DbSet<Chairman> Chairmen { get; set; }
         public virtual DbSet<Comission> Comissions { get; set; }

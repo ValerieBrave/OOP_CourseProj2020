@@ -19,6 +19,12 @@ namespace DiplomsView
         }
         public void Fill(ComboBox orders, ComboBox spec, ComboBox supers, ComboBox setters, ComboBox revs, ComboBox comission, RadioButton def)
         {
+            orders.Items.Clear();
+            spec.Items.Clear();
+            supers.Items.Clear();
+            setters.Items.Clear();
+            revs.Items.Clear();
+            comission.Items.Clear();
             foreach (Order o in db.GetAllOrdersList()) orders.Items.Add(o);
             foreach (Speciality s in db.GetAllSpecialitiesList()) spec.Items.Add(s);
             foreach (Supervisor s in db.GetAllSupervisorsList()) supers.Items.Add(s);

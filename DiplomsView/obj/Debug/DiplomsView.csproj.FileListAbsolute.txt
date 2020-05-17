@@ -28,3 +28,5 @@ D:\CourseProjOOP2020\TestDB\DiplomsView\obj\Debug\SureToDel.g.cs
 D:\CourseProjOOP2020\TestDB\DiplomsView\obj\Debug\SureToDel.baml
 D:\CourseProjOOP2020\TestDB\DiplomsView\obj\Debug\AddEditDiplom.g.cs
 D:\CourseProjOOP2020\TestDB\DiplomsView\obj\Debug\AddEditDiplom.baml
+D:\CourseProjOOP2020\TestDB\DiplomsView\obj\Debug\Catalog.g.cs
+D:\CourseProjOOP2020\TestDB\DiplomsView\obj\Debug\Catalog.baml

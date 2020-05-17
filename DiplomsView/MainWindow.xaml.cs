@@ -42,6 +42,8 @@ namespace DiplomsView
             db.diplomDeleted += this.ShowDipDelSuccess;
             db.diplomUpdated += this.RefreshList;
             db.diplomUpdated += this.ShowDipUpdSuccess;
+            db.supDeleted += this.ShowSupDelSuccess;
+            db.supDeleted += this.RefreshFilter;
             ex_handler.Error += this.ShowProtocol;
             //----rendering---------------------------------------------------
             list_filler.Fill();
@@ -153,6 +155,7 @@ namespace DiplomsView
             db.diplomAdded += add_form.ShowDipAddSuccess;
             db.diplomDeleted += add_form.ShowDipDelSuccess;
             db.diplomUpdated += add_form.ShowDipUpdSuccess;
+            db.supDeleted += add_form.ShowSupDelSuccess;
             ex_handler.Error += add_form.ShowProtocol;
             add_form.Show();
         }
@@ -183,6 +186,11 @@ namespace DiplomsView
                 '\n' + this.error_info.Text;
         }
 
+        public void ShowSupDelSuccess(string id)
+        {
+            this.error_info.Text = "Удален руководитель " + id + '\n' + this.error_info.Text;
+        }
+
         public void RefreshList(string topic)
         {
             try
@@ -196,6 +204,12 @@ namespace DiplomsView
             {
                 ex_handler.WriteProtocol(ex);
             }
+        }
+
+        public void RefreshFilter(string id)
+        {
+
+            filter_filler.Fill(this.order_Select, this.spec_Select, this.supervisor_Select, this.setter_Select, this.reviewer_Select, this.comission_Select, this.form_p_Select);
         }
 
         private void btn_Delete_Click(object sender, RoutedEventArgs e)
@@ -220,6 +234,13 @@ namespace DiplomsView
                 ex_handler.Error += edit_dip.ShowProtocol;
                 edit_dip.ShowDialog();
             }
+        }
+
+        private void btn_ShowCat(object sender, RoutedEventArgs e)
+        {
+            Catalog cat = new Catalog(this.db, this.ex_handler, Int32.Parse(this.btnSupsCat.Tag.ToString()));
+            db.supDeleted += cat.RefreshCatalog;
+            cat.ShowDialog();
         }
     }
 }

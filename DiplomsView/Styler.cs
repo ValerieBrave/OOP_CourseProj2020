@@ -60,5 +60,38 @@ namespace DiplomsView
             ((Grid)expander.Content).Children.Add(speciality);
             ((Grid)expander.Content).Children.Add(chairman);
         }
+
+        public static void catalogListItem(Grid grid, Supervisor sup)
+        {
+            grid.Width = 300;
+            //grid.HorizontalAlignment = HorizontalAlignment.Stretch;
+            grid.Height = 90;
+            ColumnDefinition c1 = new ColumnDefinition();
+            c1.Width = new GridLength(40, GridUnitType.Star);
+            ColumnDefinition c2 = new ColumnDefinition();
+            c2.Width = new GridLength(30, GridUnitType.Star);
+            ColumnDefinition c3 = new ColumnDefinition();
+            c3.Width = new GridLength(30, GridUnitType.Star);
+            grid.ColumnDefinitions.Add(c1);
+            grid.ColumnDefinitions.Add(c2);
+            grid.ColumnDefinitions.Add(c3);
+            grid.RowDefinitions.Add(new RowDefinition());
+            grid.ShowGridLines = true;
+            TextBlock sup_name = new TextBlock();
+            Grid.SetColumn(sup_name, 0);
+            sup_name.Text = sup.Supervisor_id;
+            Button edit = new Button();
+            Grid.SetColumn(edit, 1);
+            edit.Content = "Изменить";
+            Button del = new Button();
+            Grid.SetColumn(del, 2);
+            del.Content = "Удалить";
+            
+            grid.Children.Add(sup_name);
+            grid.Children.Add(edit);
+            grid.Children.Add(del);
+        }
+
+        
     }
 }

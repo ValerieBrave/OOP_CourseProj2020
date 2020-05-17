@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="SureToDel" Height="350" Width="350">
     <Grid>
-        <TextBlock Text="Удалить выбранный диплом?" TextAlignment="Center" Margin="0,37,0,203">
+        <TextBlock x:Name="title" Text="" TextAlignment="Center" Margin="0,37,0,203">
             <TextBlock.FontSize>
                 <System:Double>16</System:Double>
             </TextBlock.FontSize>
@@ -16,7 +16,7 @@
                 <FontFamily>Candara</FontFamily>
             </TextBlock.FontFamily>
         </TextBlock>
-        <TextBlock x:Name="dip_info" Height="200" Margin="0,62,0,57" FontFamily="Candara" FontSize="14" TextAlignment="Center"/>
+        <TextBlock x:Name="info" Height="200" Margin="0,62,0,57" FontFamily="Candara" FontSize="14" TextAlignment="Center"/>
         <Button x:Name="btn_DelDip" Content="Удалить" Height="40" Width="90" Margin="126,262,126,17" Click="btn_DelDip_Click"/>
     </Grid>
 </Window>

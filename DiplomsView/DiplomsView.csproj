@@ -69,12 +69,20 @@
       <DependentUpon>AddEditDiplom.xaml</DependentUpon>
     </Compile>
     <Compile Include="AddEditFormFiller.cs" />
+    <Compile Include="Catalog.xaml.cs">
+      <DependentUpon>Catalog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CatalogFiller.cs" />
     <Compile Include="FilterFiller.cs" />
     <Compile Include="Styler.cs" />
     <Compile Include="SureToDel.xaml.cs">
       <DependentUpon>SureToDel.xaml</DependentUpon>
     </Compile>
     <Page Include="AddEditDiplom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
