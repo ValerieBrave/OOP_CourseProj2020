@@ -8,7 +8,8 @@
         Title="Catalog" Height="600" Width="400" ResizeMode="NoResize">
     <Grid>
         <Label x:Name="catalog_name" Content="Label" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="372" Height="40"/>
-        <ListBox x:Name="catalog" HorizontalAlignment="Left" Height="504" Margin="10,55,0,0" VerticalAlignment="Top" Width="372"/>
+        <ListBox x:Name="catalog" HorizontalAlignment="Left" Height="428" Margin="10,55,0,0" VerticalAlignment="Top" Width="372"/>
+        <Button x:Name="btn_addElem" Content="Добавить" HorizontalAlignment="Left" Margin="135,511,0,0" VerticalAlignment="Top" Width="120" Height="40" Click="btn_addElem_Click"/>
 
     </Grid>
 </Window>

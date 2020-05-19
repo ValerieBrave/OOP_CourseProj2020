@@ -56,6 +56,7 @@ namespace DiplomsDB.Models
             this.Supervisors.Add(su);
             rc = su;
             this.SaveChanges();
+            this.supAdded(su.Supervisor_id);
             return rc;
         }
         public Chairman AddChairman(Chairman ch)

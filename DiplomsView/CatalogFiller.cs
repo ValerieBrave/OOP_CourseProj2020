@@ -14,14 +14,16 @@ namespace DiplomsView
         ContextDB db;
         dbExceptionHandler handler;
         Catalog cat_win;
+        Label name;
         ListBox catalog;
         int cat_id;
-        public CatalogFiller(ContextDB d, dbExceptionHandler h, Catalog c, ListBox cat, int id)
+        public CatalogFiller(ContextDB d, dbExceptionHandler h, Catalog c, ListBox cat, Label nam, int id)
         {
             db = d;
             handler = h;
             catalog = cat;
             cat_win = c;
+            name = nam;
             cat_id = id;
         }
         private void OpenSureToDel(object sender, RoutedEventArgs e)
@@ -53,6 +55,7 @@ namespace DiplomsView
             {
                 if (id == 1)
                 {
+                    name.Content = "Все руководители:";
                     List<Supervisor> revs = db.GetAllSupervisorsList();
                     foreach (Supervisor r in revs) catalog.Items.Add(getGrid(r));
                 }

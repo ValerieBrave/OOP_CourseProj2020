@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\CourseProjOOP2020\TestDB\DiplomsView\App.xaml
-71268784263
+8422962015
 
-181609614567
+191066747204
 171116490816
-AddEditDiplom.xaml;Catalog.xaml;EditCatElement.xaml;MainWindow.xaml;Resources\dipExpander.xaml;Resources\Styles.xaml;SureToDel.xaml;
+AddCatElement.xaml;AddEditDiplom.xaml;Catalog.xaml;EditCatElement.xaml;MainWindow.xaml;Resources\dipExpander.xaml;Resources\Styles.xaml;SureToDel.xaml;
 
 False
 

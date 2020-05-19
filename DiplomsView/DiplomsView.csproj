@@ -65,6 +65,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddCatElement.xaml.cs">
+      <DependentUpon>AddCatElement.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddEditDiplom.xaml.cs">
       <DependentUpon>AddEditDiplom.xaml</DependentUpon>
     </Compile>
@@ -81,6 +84,10 @@
     <Compile Include="SureToDel.xaml.cs">
       <DependentUpon>SureToDel.xaml</DependentUpon>
     </Compile>
+    <Page Include="AddCatElement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AddEditDiplom.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

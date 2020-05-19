@@ -47,22 +47,15 @@ namespace DiplomsView
                 Grid.SetRow(old_email, 1);
                 Grid.SetColumnSpan(old_email, 2);
                 old_email.Margin = new Thickness(10, 40, 10, 0);
-                //old_email.Text = "Драсте проверочка динамического построения окна";
                 this.grid.Children.Add(old_email);
-                //----------------------------
-                //Grid.SetColumn(this.new_id, 0);
-                //Grid.SetColumnSpan(this.new_id, 1);
-                //new_id.Margin = new Thickness(10, 40, 10, 109);
-                //----------------------------
+                //-----------------
                 new_email = new TextBox();
                 Grid.SetRow(new_email, 2);
                 Grid.SetColumnSpan(new_email, 2);
                 new_email.Margin = new Thickness(10, 97, 10, 72);
                 new_email.Name = "new_email";
                 new_email.Text = "new_email";
-                
                 grid.Children.Add(new_email);
-                grid.RegisterName(new_email.Name, new_email);
                 //---------------------------
                 old_email_help = new TextBlock();
                 Grid.SetRow(old_email_help, 1);
@@ -74,7 +67,6 @@ namespace DiplomsView
                 Grid.SetRow(new_email_help, 2);
                 Grid.SetColumn(new_email_help, 0);
                 new_email_help.Margin = new Thickness(10, 70, 23, 114);
-                
                 grid.Children.Add(new_email_help);
                 filler.FillEditSupervisor(cat_id, edit_id, this.old_id, this.old_email);
             }

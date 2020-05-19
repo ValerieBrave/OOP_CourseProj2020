@@ -310,6 +310,18 @@ namespace DiplomsView
             }
         }
 
+        public void RefreshForm(string id)
+        {
+            filler.FillAddForm(this.order_select,
+                            this.spec_select,
+                            this.supervisor_select,
+                            this.setter_select,
+                            this.reviewer_select,
+                            this.comission_select,
+                            this.form_p_select,
+                            this.chairman_select);
+        }
+
         private void btn_Add_Click(object sender, RoutedEventArgs e)
         {
             if (!edit) Add();
@@ -345,6 +357,14 @@ namespace DiplomsView
         public void ShowSupDelSuccess(string id)
         {
             this.error_info.Text = "Удален руководитель " + id + '\n' + this.error_info.Text;
+        }
+        public void ShowSupUpdSuccess(string id)
+        {
+            this.error_info.Text = "Изменен руководитель " + id + '\n' + this.error_info.Text;
+        }
+        public void ShowSupAddSuccess(string id)
+        {
+            this.error_info.Text = "Добавлен руководитель " + id + '\n' + this.error_info.Text;
         }
     }
 }

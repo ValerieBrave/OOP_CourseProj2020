@@ -34,7 +34,7 @@ namespace DiplomsView
             db = d;
             handler = h;
             cat_id = id;
-            filler = new CatalogFiller(db, handler, this, this.catalog, cat_id);
+            filler = new CatalogFiller(db, handler, this, this.catalog, this.catalog_name, cat_id);
             filler.Fill(cat_id);
         }
 
@@ -44,5 +44,10 @@ namespace DiplomsView
             filler.Fill(cat_id);
         }
 
+        private void btn_addElem_Click(object sender, RoutedEventArgs e)
+        {
+            AddCatElement ace = new AddCatElement(db, handler, cat_id);
+            ace.ShowDialog();
+        }
     }
 }

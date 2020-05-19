@@ -47,11 +47,12 @@ namespace DiplomsView
             db.supUpdated += this.ShowSupUpdSuccess;
             db.supUpdated += this.RefreshFilter;
             db.supUpdated += this.RefreshList;
+            db.supAdded += this.ShowSupAddSuccess;
+            db.supAdded += this.RefreshFilter;
             ex_handler.Error += this.ShowProtocol;
             //----rendering---------------------------------------------------
             list_filler.Fill();
             filter_filler.Fill(this.order_Select, this.spec_Select, this.supervisor_Select, this.setter_Select, this.reviewer_Select, this.comission_Select, this.form_p_Select);
-
         }
 
         private void btn_Search_Click(object sender, RoutedEventArgs e)
@@ -159,6 +160,11 @@ namespace DiplomsView
             db.diplomDeleted += add_form.ShowDipDelSuccess;
             db.diplomUpdated += add_form.ShowDipUpdSuccess;
             db.supDeleted += add_form.ShowSupDelSuccess;
+            db.supDeleted += add_form.RefreshForm;
+            db.supUpdated += add_form.ShowSupUpdSuccess;
+            db.supUpdated += add_form.RefreshForm;
+            db.supAdded += add_form.ShowSupAddSuccess;
+            db.supAdded += add_form.RefreshForm;
             ex_handler.Error += add_form.ShowProtocol;
             add_form.Show();
         }
@@ -197,6 +203,11 @@ namespace DiplomsView
         public void ShowSupUpdSuccess(string id)
         {
             this.error_info.Text = "Изменен руководитель " + id + '\n' + this.error_info.Text;
+        }
+
+        public void ShowSupAddSuccess(string id)
+        {
+            this.error_info.Text = "Добавлен руководитель " + id + '\n' + this.error_info.Text;
         }
 
         public void RefreshList(string topic)
@@ -238,6 +249,12 @@ namespace DiplomsView
                 db.diplomAdded += edit_dip.ShowDipAddSuccess;
                 db.diplomDeleted += edit_dip.ShowDipDelSuccess;
                 db.diplomUpdated += edit_dip.ShowDipUpdSuccess;
+                db.supDeleted += edit_dip.ShowSupDelSuccess;
+                db.supDeleted += edit_dip.RefreshForm;
+                db.supUpdated += edit_dip.ShowSupUpdSuccess;
+                db.supUpdated += edit_dip.RefreshForm;
+                db.supAdded += edit_dip.ShowSupAddSuccess;
+                db.supAdded += edit_dip.RefreshForm;
                 ex_handler.Error += edit_dip.ShowProtocol;
                 edit_dip.ShowDialog();
             }
@@ -248,6 +265,7 @@ namespace DiplomsView
             Catalog cat = new Catalog(this.db, this.ex_handler, Int32.Parse(this.btnSupsCat.Tag.ToString()));
             db.supDeleted += cat.RefreshCatalog;
             db.supUpdated += cat.RefreshCatalog;
+            db.supAdded += cat.RefreshCatalog;
             cat.ShowDialog();
         }
     }
