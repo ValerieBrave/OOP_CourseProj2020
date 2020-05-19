@@ -16,11 +16,13 @@ namespace DiplomsDB.Models
         public delegate void onDipDelete(string topic);
         public delegate void onDipUpdate(string info);
         public delegate void onSupDelete(string id);
+        public delegate void onSupUpdate(string id);
         //------events
         public event onDipAdd diplomAdded;
         public event onDipDelete diplomDeleted;
         public event onDipUpdate diplomUpdated;
         public event onSupDelete supDeleted;
+        public event onSupUpdate supUpdated;
         //------------
         public virtual DbSet<Chairman> Chairmen { get; set; }
         public virtual DbSet<Comission> Comissions { get; set; }
@@ -36,6 +38,7 @@ namespace DiplomsDB.Models
             modelBuilder.Entity<Diplom>()
                 .Property(e => e.Form)
                 .IsFixedLength();
+                
         }
     }
 }

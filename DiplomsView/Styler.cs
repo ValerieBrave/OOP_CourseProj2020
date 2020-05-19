@@ -60,10 +60,9 @@ namespace DiplomsView
             ((Grid)expander.Content).Children.Add(speciality);
             ((Grid)expander.Content).Children.Add(chairman);
         }
-
         public static void catalogListItem(Grid grid, Supervisor sup)
         {
-            grid.Width = 300;
+            grid.Width = 350;
             //grid.HorizontalAlignment = HorizontalAlignment.Stretch;
             grid.Height = 90;
             ColumnDefinition c1 = new ColumnDefinition();

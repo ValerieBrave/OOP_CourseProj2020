@@ -44,6 +44,9 @@ namespace DiplomsView
             db.diplomUpdated += this.ShowDipUpdSuccess;
             db.supDeleted += this.ShowSupDelSuccess;
             db.supDeleted += this.RefreshFilter;
+            db.supUpdated += this.ShowSupUpdSuccess;
+            db.supUpdated += this.RefreshFilter;
+            db.supUpdated += this.RefreshList;
             ex_handler.Error += this.ShowProtocol;
             //----rendering---------------------------------------------------
             list_filler.Fill();
@@ -191,6 +194,11 @@ namespace DiplomsView
             this.error_info.Text = "Удален руководитель " + id + '\n' + this.error_info.Text;
         }
 
+        public void ShowSupUpdSuccess(string id)
+        {
+            this.error_info.Text = "Изменен руководитель " + id + '\n' + this.error_info.Text;
+        }
+
         public void RefreshList(string topic)
         {
             try
@@ -208,7 +216,6 @@ namespace DiplomsView
 
         public void RefreshFilter(string id)
         {
-
             filter_filler.Fill(this.order_Select, this.spec_Select, this.supervisor_Select, this.setter_Select, this.reviewer_Select, this.comission_Select, this.form_p_Select);
         }
 
@@ -240,6 +247,7 @@ namespace DiplomsView
         {
             Catalog cat = new Catalog(this.db, this.ex_handler, Int32.Parse(this.btnSupsCat.Tag.ToString()));
             db.supDeleted += cat.RefreshCatalog;
+            db.supUpdated += cat.RefreshCatalog;
             cat.ShowDialog();
         }
     }

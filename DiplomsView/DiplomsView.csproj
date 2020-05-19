@@ -73,6 +73,9 @@
       <DependentUpon>Catalog.xaml</DependentUpon>
     </Compile>
     <Compile Include="CatalogFiller.cs" />
+    <Compile Include="EditCatElement.xaml.cs">
+      <DependentUpon>EditCatElement.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FilterFiller.cs" />
     <Compile Include="Styler.cs" />
     <Compile Include="SureToDel.xaml.cs">
@@ -83,6 +86,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Catalog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditCatElement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -29,18 +29,24 @@ namespace DiplomsView
             SureToDel std = new SureToDel(db, handler, ((Button)sender).Tag.ToString(), cat_id);
             std.ShowDialog();
         }
+        private void OpenEditCatElement(object sender, RoutedEventArgs e)
+        {
+            EditCatElement ece = new EditCatElement(db, handler, this, ((Button)sender).Tag.ToString(), cat_id);
+            cat_win.Close();
+            ece.ShowDialog();
+        }
         public Grid getGrid(Supervisor sup)
         {
             Grid rc = new Grid();
             Styler.catalogListItem(rc, sup);
             var del = rc.Children.OfType<Button>().Where(i => (Grid.GetColumn(i) == 2)).First<Button>();
+            var edit = rc.Children.OfType<Button>().Where(i => (Grid.GetColumn(i) == 1)).First<Button>();
             ((Button)del).Tag = sup.Supervisor_id;
             ((Button)del).Click += new RoutedEventHandler(OpenSureToDel);
-            
-            
+            ((Button)edit).Tag = sup.Supervisor_id;
+            ((Button)edit).Click += new RoutedEventHandler(OpenEditCatElement);
             return rc;
         }
-
         public void Fill(int id)
         {
             try
@@ -55,6 +61,23 @@ namespace DiplomsView
             {
                 handler.WriteProtocol(ex);
             }
+        }
+        public void FillEditSupervisor(int cat_id, string ed_id, TextBlock oldid, TextBlock oldemail)
+        {
+            try
+            {
+                Supervisor sup = db.GetSupervisorById(ed_id);
+                oldid.Text = sup.Supervisor_id;
+                //oldemail.Text = sup.Mail
+            }
+            catch(Exception ex)
+            {
+                handler.WriteProtocol(ex);
+            }
+        }
+        public void FillEditOthers(int cat_id, string del_id)
+        {
+
         }
     }
 }

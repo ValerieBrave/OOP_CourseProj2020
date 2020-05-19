@@ -54,9 +54,16 @@ namespace DiplomsDB.Models
         public bool UpdSupervisor(string oldid, Supervisor su)
         {
             bool rc = true;
-            Supervisor ols = this.GetSupervisorById(oldid);
-            ols.Update(su);
+            //Supervisor ols = this.GetSupervisorById(oldid);
+            //ols.Update(su);
+            string query = "update Supervisors set Supervisor_id = '"
+                + su.Supervisor_id
+                + "' where Supervisor_id like '"
+                + oldid
+                + "'";
+            var s = this.Database.ExecuteSqlCommand(query);
             this.SaveChanges();
+            this.supUpdated(oldid);
             return rc;
         }
         public bool UpdChairman(string oldid, Chairman ch)
