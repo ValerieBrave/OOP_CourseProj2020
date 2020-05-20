@@ -41,7 +41,7 @@ namespace DiplomsView
             filler = f;
             edit_id = e_id;
             cat_id = c_id;
-            if(cat_id == 1)
+            if (cat_id == 1)
             {
                 old_email = new TextBlock();
                 Grid.SetRow(old_email, 1);
@@ -70,6 +70,7 @@ namespace DiplomsView
                 grid.Children.Add(new_email_help);
                 filler.FillEditSupervisor(cat_id, edit_id, this.old_id, this.old_email);
             }
+            else filler.FillEditOthers(cat_id, edit_id, this.old_id, this.old_id_help, this.new_id_help);
         }
 
         private void btnSaveEdit_Click(object sender, RoutedEventArgs e)
@@ -87,6 +88,28 @@ namespace DiplomsView
                     if (new_sup.Supervisor_id != "")    // || new_sup.Mail != ""
                     {
                         db.UpdSupervisor(this.edit_id, new_sup);
+                        edit = true;
+                    }
+                }
+                else if(cat_id == 2)
+                {
+                    if(this.new_id.Text != "")
+                    {
+                        Order old_or = db.GetOrderById(this.edit_id);
+                        Order new_or = new Order();
+                        new_or.Order_id = this.new_id.Text;
+                        db.UpdOrder(this.edit_id, new_or);
+                        edit = true;
+                    }
+                }
+                else if (cat_id == 3)
+                {
+                    if (this.new_id.Text != "")
+                    {
+                        Comission old_com = db.GetComissionById(this.edit_id);
+                        Comission new_com = new Comission();
+                        new_com.Comission_id = this.new_id.Text;
+                        db.UpdComission(this.edit_id, new_com);
                         edit = true;
                     }
                 }

@@ -81,6 +81,7 @@
     </Compile>
     <Compile Include="FilterFiller.cs" />
     <Compile Include="Styler.cs" />
+    <Compile Include="Subscriber.cs" />
     <Compile Include="SureToDel.xaml.cs">
       <DependentUpon>SureToDel.xaml</DependentUpon>
     </Compile>

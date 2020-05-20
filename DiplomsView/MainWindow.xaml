@@ -83,5 +83,7 @@
         <Button x:Name="btn_Edit" Content="Редактировать" HorizontalAlignment="Left" Margin="184,533,0,0" Grid.Row="1" VerticalAlignment="Top" Width="76" Height="50" Click="btn_Edit_Click"/>
         
         <Button x:Name="btnSupsCat" Content="Руководители" Tag="1" HorizontalAlignment="Left" Margin="23,0,0,0" VerticalAlignment="Top" Width="106" Height="40" Click="btn_ShowCat"/>
+        <Button x:Name="btnOrdCat" Content="Приказы" Tag="2" HorizontalAlignment="Left" Margin="134,0,0,0" VerticalAlignment="Top" Width="106" Height="40" Click="btn_ShowCat"/>
+        <Button x:Name="btnComCat" Content="Комиссии" Tag="3" HorizontalAlignment="Left" Margin="245,0,0,0" VerticalAlignment="Top" Width="106" Height="40" Click="btn_ShowCat"/>
     </Grid>
 </Window>

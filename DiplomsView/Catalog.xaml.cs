@@ -20,7 +20,7 @@ namespace DiplomsView
     /// </summary>
     public partial class Catalog : Window
     {
-        ContextDB db;
+        public ContextDB db;
         dbExceptionHandler handler;
         CatalogFiller filler;
         int cat_id;
@@ -48,6 +48,11 @@ namespace DiplomsView
         {
             AddCatElement ace = new AddCatElement(db, handler, cat_id);
             ace.ShowDialog();
+        }
+
+        private void Catalog_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Subscriber.Unsubscribe(this);
         }
     }
 }

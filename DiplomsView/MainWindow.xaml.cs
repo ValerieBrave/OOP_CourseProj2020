@@ -21,8 +21,8 @@ namespace DiplomsView
     /// </summary>
     public partial class MainWindow : Window
     {
-        ContextDB db;
-        dbExceptionHandler ex_handler;
+        public ContextDB db;
+        public dbExceptionHandler ex_handler;
         DiplomListFiller list_filler;
         FilterFiller filter_filler;
         
@@ -36,20 +36,8 @@ namespace DiplomsView
             list_filler = new DiplomListFiller(this.diplomsList, db, ex_handler);
             filter_filler = new FilterFiller(this.filterGrid, db);
             //----subscribing--------------------------------------------------
-            db.diplomAdded += this.RefreshList;
-            db.diplomAdded += this.ShowDipAddSuccess;
-            db.diplomDeleted += this.RefreshList;
-            db.diplomDeleted += this.ShowDipDelSuccess;
-            db.diplomUpdated += this.RefreshList;
-            db.diplomUpdated += this.ShowDipUpdSuccess;
-            db.supDeleted += this.ShowSupDelSuccess;
-            db.supDeleted += this.RefreshFilter;
-            db.supUpdated += this.ShowSupUpdSuccess;
-            db.supUpdated += this.RefreshFilter;
-            db.supUpdated += this.RefreshList;
-            db.supAdded += this.ShowSupAddSuccess;
-            db.supAdded += this.RefreshFilter;
-            ex_handler.Error += this.ShowProtocol;
+            
+            Subscriber.Subscribe(this);
             //----rendering---------------------------------------------------
             list_filler.Fill();
             filter_filler.Fill(this.order_Select, this.spec_Select, this.supervisor_Select, this.setter_Select, this.reviewer_Select, this.comission_Select, this.form_p_Select);
@@ -156,17 +144,18 @@ namespace DiplomsView
         private void btn_Add_Click(object sender, RoutedEventArgs e)
         {
             AddEditDiplom add_form = new AddEditDiplom(this.db, ex_handler);
-            db.diplomAdded += add_form.ShowDipAddSuccess;
-            db.diplomDeleted += add_form.ShowDipDelSuccess;
-            db.diplomUpdated += add_form.ShowDipUpdSuccess;
-            db.supDeleted += add_form.ShowSupDelSuccess;
-            db.supDeleted += add_form.RefreshForm;
-            db.supUpdated += add_form.ShowSupUpdSuccess;
-            db.supUpdated += add_form.RefreshForm;
-            db.supAdded += add_form.ShowSupAddSuccess;
-            db.supAdded += add_form.RefreshForm;
-            ex_handler.Error += add_form.ShowProtocol;
+            Subscriber.Subscribe(add_form);
             add_form.Show();
+        }
+
+        private void btn_Edit_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.diplomsList.SelectedItem != null)
+            {
+                AddEditDiplom edit_dip = new AddEditDiplom(this.db, this.ex_handler, (Expander)this.diplomsList.SelectedItem);
+                Subscriber.Subscribe(edit_dip);
+                edit_dip.ShowDialog();
+            }
         }
 
         public void ShowProtocol(string pr)
@@ -210,6 +199,36 @@ namespace DiplomsView
             this.error_info.Text = "Добавлен руководитель " + id + '\n' + this.error_info.Text;
         }
 
+        public void ShowOrdDelSuccess(string id)
+        {
+            this.error_info.Text = "Удален приказ " + id + '\n' + this.error_info.Text;
+        }
+
+        public void ShowOrdUpdSuccess(string id)
+        {
+            this.error_info.Text = "Изменен приказ " + id + '\n' + this.error_info.Text;
+        }
+
+        public void ShowOrdAddSuccess(string id)
+        {
+            this.error_info.Text = "Добавлен приказ " + id + '\n' + this.error_info.Text;
+        }
+
+        public void ShowComDelSuccess(string id)
+        {
+            this.error_info.Text = "Удалена комиссия по предзащите " + id + '\n' + this.error_info.Text;
+        }
+
+        public void ShowComUpdSuccess(string id)
+        {
+            this.error_info.Text = "Изменена комиссия по предзащите " + id + '\n' + this.error_info.Text;
+        }
+
+        public void ShowComAddSuccess(string id)
+        {
+            this.error_info.Text = "Добавлена комиссия по предзащите " + id + '\n' + this.error_info.Text;
+        }
+
         public void RefreshList(string topic)
         {
             try
@@ -235,37 +254,14 @@ namespace DiplomsView
             if(this.diplomsList.SelectedItem != null)
             {
                 SureToDel sure_del = new SureToDel(db, ex_handler, (Expander)this.diplomsList.SelectedItem);
-                
                 sure_del.ShowDialog();
-            }
-            
-        }
-
-        private void btn_Edit_Click(object sender, RoutedEventArgs e)
-        {
-            if (this.diplomsList.SelectedItem != null)
-            {
-                AddEditDiplom edit_dip = new AddEditDiplom(this.db, this.ex_handler, (Expander)this.diplomsList.SelectedItem);
-                db.diplomAdded += edit_dip.ShowDipAddSuccess;
-                db.diplomDeleted += edit_dip.ShowDipDelSuccess;
-                db.diplomUpdated += edit_dip.ShowDipUpdSuccess;
-                db.supDeleted += edit_dip.ShowSupDelSuccess;
-                db.supDeleted += edit_dip.RefreshForm;
-                db.supUpdated += edit_dip.ShowSupUpdSuccess;
-                db.supUpdated += edit_dip.RefreshForm;
-                db.supAdded += edit_dip.ShowSupAddSuccess;
-                db.supAdded += edit_dip.RefreshForm;
-                ex_handler.Error += edit_dip.ShowProtocol;
-                edit_dip.ShowDialog();
             }
         }
 
         private void btn_ShowCat(object sender, RoutedEventArgs e)
         {
-            Catalog cat = new Catalog(this.db, this.ex_handler, Int32.Parse(this.btnSupsCat.Tag.ToString()));
-            db.supDeleted += cat.RefreshCatalog;
-            db.supUpdated += cat.RefreshCatalog;
-            db.supAdded += cat.RefreshCatalog;
+            Catalog cat = new Catalog(this.db, this.ex_handler, Int32.Parse(((Button)sender).Tag.ToString()));
+            Subscriber.Subscribe(cat);
             cat.ShowDialog();
         }
     }

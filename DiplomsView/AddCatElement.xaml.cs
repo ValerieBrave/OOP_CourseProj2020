@@ -54,6 +54,8 @@ namespace DiplomsView
                 email.FontSize = 16;
                 grid.Children.Add(email);
             }
+            else if(cat_id == 2) this.cat_name_help.Text = "Добавление нового приказа";
+            else if(cat_id == 3) this.cat_name_help.Text = "Добавление новой комиссии";
         }
         private void btn_AddElement_Click(object sender, RoutedEventArgs e)
         {
@@ -68,6 +70,26 @@ namespace DiplomsView
                     if(!sup.Supervisor_id.Equals(""))   // email может быть пустым
                     {
                         db.AddSupervisor(sup);
+                        add = true;
+                    }
+                }
+                if (cat_id == 2)    //Order
+                {
+                    Order or = new Order();
+                    or.Order_id = this.new_id.Text.Equals("") ? "" : this.new_id.Text;
+                    if(!or.Order_id.Equals(""))
+                    {
+                        db.AddOrder(or);
+                        add = true;
+                    }
+                }
+                if (cat_id == 3)    //Comission
+                {
+                    Comission com = new Comission();
+                    com.Comission_id = this.new_id.Text.Equals("") ? "" : this.new_id.Text;
+                    if(!com.Comission_id.Equals(""))
+                    {
+                        db.AddComission(com);
                         add = true;
                     }
                 }

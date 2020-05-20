@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DiplomsView"
         mc:Ignorable="d"
-        Title="Catalog" Height="600" Width="400" ResizeMode="NoResize">
+        Title="Catalog" Height="600" Width="400" ResizeMode="NoResize" Closing="Catalog_Closing">
     <Grid>
         <Label x:Name="catalog_name" Content="Label" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="372" Height="40"/>
         <ListBox x:Name="catalog" HorizontalAlignment="Left" Height="428" Margin="10,55,0,0" VerticalAlignment="Top" Width="372"/>

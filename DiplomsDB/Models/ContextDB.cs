@@ -18,6 +18,12 @@ namespace DiplomsDB.Models
         public delegate void onSupDelete(string id);
         public delegate void onSupUpdate(string id);
         public delegate void onSupAdd(string id);
+        public delegate void onOrdDelete(string id);
+        public delegate void onOrdUpdate(string id);
+        public delegate void onOrdAdd(string id);
+        public delegate void onComDelete(string id);
+        public delegate void onComUpdate(string id);
+        public delegate void onComAdd(string id);
         //------events
         public event onDipAdd diplomAdded;
         public event onDipDelete diplomDeleted;
@@ -25,6 +31,12 @@ namespace DiplomsDB.Models
         public event onSupDelete supDeleted;
         public event onSupUpdate supUpdated;
         public event onSupAdd supAdded;
+        public event onOrdDelete ordDeleted;
+        public event onOrdUpdate ordUpdated;
+        public event onOrdAdd ordAdded;
+        public event onComDelete comDeleted;
+        public event onComUpdate comUpdated;
+        public event onComAdd comAdded;
         //------------
         public virtual DbSet<Chairman> Chairmen { get; set; }
         public virtual DbSet<Comission> Comissions { get; set; }

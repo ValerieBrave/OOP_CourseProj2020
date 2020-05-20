@@ -63,11 +63,13 @@ namespace DiplomsView
         {
             try
             {
-                if(selected != null) db.DeleteDiplom((int)selected.Tag);
-                else if(catalog_id == 1)    //значит удаляем руководителей
+                if (selected != null) db.DeleteDiplom((int)selected.Tag);
+                else if (catalog_id == 1)    //значит удаляем руководителей
                 {
                     db.DeleteSupervisor(this.info.Text);
                 }
+                else if (catalog_id == 2) db.DeleteOrder(this.info.Text);
+                else if (catalog_id == 3) db.DeleteComission(this.info.Text);
             }
             catch (Exception ex)
             {

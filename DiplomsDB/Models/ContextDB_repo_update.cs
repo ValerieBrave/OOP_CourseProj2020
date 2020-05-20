@@ -22,9 +22,16 @@ namespace DiplomsDB.Models
         public bool UpdOrder(string oldid, Order or)
         {
             bool rc = true;
-            Order oldor = this.GetOrderById(oldid);
-            oldor.Update(or);
+            string query = "update Orders set Order_id = '"
+               + or.Order_id
+               + "' where Order_id like '"
+               + oldid
+               + "'";
+            //Order oldor = this.GetOrderById(oldid);
+            //oldor.Update(or);
+            var o = this.Database.ExecuteSqlCommand(query);
             this.SaveChanges();
+            this.ordUpdated(oldid);
             return rc;
         }
         public bool UpdReviewer(string oldid, Reviewer rev)
@@ -77,9 +84,16 @@ namespace DiplomsDB.Models
         public bool UpdComission(string oldid, Comission co)
         {
             bool rc = true;
-            Comission olc = this.GetComissionById(oldid);
-            olc.Update(co);
+            //Comission olc = this.GetComissionById(oldid);
+            //olc.Update(co);
+            string query = "update Comissions set Comission_id = '"
+                + co.Comission_id
+                + "' where Comission_id like '"
+                + oldid
+                + "'";
+            var s = this.Database.ExecuteSqlCommand(query);
             this.SaveChanges();
+            this.comUpdated(oldid);
             return rc;
         }
     }

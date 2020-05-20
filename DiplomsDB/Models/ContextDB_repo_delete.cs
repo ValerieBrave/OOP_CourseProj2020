@@ -21,5 +21,17 @@ namespace DiplomsDB.Models
             this.SaveChanges();
             this.supDeleted(id);
         }
+        public void DeleteOrder(string id)
+        {
+            this.Orders.Remove(this.GetOrderById(id));
+            this.SaveChanges();
+            this.ordDeleted(id);
+        }
+        public void DeleteComission(string id)
+        {
+            this.Comissions.Remove(this.GetComissionById(id));
+            this.SaveChanges();
+            this.comDeleted(id);
+        }
     }
 }

@@ -24,6 +24,7 @@ namespace DiplomsDB.Models
             this.Orders.Add(or);
             rc = or;
             this.SaveChanges();
+            this.ordAdded(or.Order_id);
             return rc;
         }
         public Reviewer AddReviewer(Reviewer rev)
@@ -73,6 +74,7 @@ namespace DiplomsDB.Models
             this.Comissions.Add(co);
             rc = co;
             this.SaveChanges();
+            this.comAdded(co.Comission_id);
             return rc;
         }
     }

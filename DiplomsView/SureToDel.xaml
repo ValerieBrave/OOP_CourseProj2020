@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DiplomsView"
         xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="DiplomsView.SureToDel"
         mc:Ignorable="d"
-        Title="SureToDel" Height="350" Width="350">
+        Title="SureToDel" Height="350" Width="350" ResizeMode="NoResize">
     <Grid>
         <TextBlock x:Name="title" Text="" TextAlignment="Center" Margin="0,37,0,203">
             <TextBlock.FontSize>
@@ -16,7 +16,7 @@
                 <FontFamily>Candara</FontFamily>
             </TextBlock.FontFamily>
         </TextBlock>
-        <TextBlock x:Name="info" Height="200" Margin="0,62,0,57" FontFamily="Candara" FontSize="14" TextAlignment="Center"/>
-        <Button x:Name="btn_DelDip" Content="Удалить" Height="40" Width="90" Margin="126,262,126,17" Click="btn_DelDip_Click"/>
+        <TextBlock x:Name="info" Margin="0,62,0,79" FontFamily="Candara" FontSize="14" TextAlignment="Center"/>
+        <Button x:Name="btn_DelDip" Content="Удалить" Width="90" Margin="127,255,127,31" Click="btn_DelDip_Click"/>
     </Grid>
 </Window>

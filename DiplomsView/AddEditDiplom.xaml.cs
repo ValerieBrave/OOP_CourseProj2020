@@ -20,8 +20,8 @@ namespace DiplomsView
     /// </summary>
     public partial class AddEditDiplom : Window
     {
-        ContextDB db;
-        dbExceptionHandler ex_handler;
+        public ContextDB db;
+        public dbExceptionHandler ex_handler;
         AddEditFormFiller filler;
         bool edit = false;
         Expander to_del = new Expander();
@@ -365,6 +365,34 @@ namespace DiplomsView
         public void ShowSupAddSuccess(string id)
         {
             this.error_info.Text = "Добавлен руководитель " + id + '\n' + this.error_info.Text;
+        }
+        public void ShowOrdDelSuccess(string id)
+        {
+            this.error_info.Text = "Удален приказ " + id + '\n' + this.error_info.Text;
+        }
+        public void ShowOrdUpdSuccess(string id)
+        {
+            this.error_info.Text = "Изменен приказ " + id + '\n' + this.error_info.Text;
+        }
+        public void ShowOrdAddSuccess(string id)
+        {
+            this.error_info.Text = "Добавлен приказ " + id + '\n' + this.error_info.Text;
+        }
+        public void ShowComDelSuccess(string id)
+        {
+            this.error_info.Text = "Удалена комиссия по предзащите " + id + '\n' + this.error_info.Text;
+        }
+        public void ShowComUpdSuccess(string id)
+        {
+            this.error_info.Text = "Изменена комиссия по предзащите " + id + '\n' + this.error_info.Text;
+        }
+        public void ShowComAddSuccess(string id)
+        {
+            this.error_info.Text = "Добавлена комиссия по предзащите " + id + '\n' + this.error_info.Text;
+        }
+        private void AddEditDiplom_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Subscriber.Unsubscribe(this);
         }
     }
 }
