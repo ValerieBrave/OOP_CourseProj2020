@@ -14,6 +14,7 @@ namespace DiplomsView
     {
         public static void dipExpanderStyle(Expander expander)
         {
+
             expander.FontSize = 16;
             expander.FontFamily = new FontFamily("Yu Gothic UI");
             expander.Content = new Grid();
@@ -28,7 +29,14 @@ namespace DiplomsView
         }
         public static void dipExpanderContent(Expander expander, Diplom diplom)
         {
-            expander.Header = diplom.Topic + ", "+", "+diplom.Form+ ", " + diplom.Student_name+ ", " + diplom.Order_id;
+            expander.Header = new TextBlock();
+            ((TextBlock)expander.Header).Text = diplom.Topic + ", "+", "+diplom.Form+ ", " + diplom.Student_name+ ", " + diplom.Order_id;
+            ((TextBlock)expander.Header).Text = '[' + diplom.Order_id + ']'
+                + '-' + diplom.Form
+                + '-' + diplom.Speciality_id
+                + "-студ.-" + diplom.Student_name
+                + "-рук. -" + diplom.Supervisor_id;
+            ((TextBlock)expander.Header).Height = 50;
             TextBlock supervisor = new TextBlock() { Text = "Руководитель: " + diplom.Supervisor_id };
             TextBlock comission = new TextBlock() { Text = "Комиссия: " + diplom.Comission_id };
             TextBlock reviewer = new TextBlock() { Text = "Рецензент: " + diplom.Reviewer_id };
@@ -139,6 +147,126 @@ namespace DiplomsView
             TextBlock sup_name = new TextBlock();
             Grid.SetColumn(sup_name, 0);
             sup_name.Text = com.Comission_id;
+            Button edit = new Button();
+            Grid.SetColumn(edit, 1);
+            edit.Content = "Изменить";
+            Button del = new Button();
+            Grid.SetColumn(del, 2);
+            del.Content = "Удалить";
+
+            grid.Children.Add(sup_name);
+            grid.Children.Add(edit);
+            grid.Children.Add(del);
+        }
+        public static void catalogListItem(Grid grid, Reviewer rev)
+        {
+            grid.Width = 350;
+            //grid.HorizontalAlignment = HorizontalAlignment.Stretch;
+            grid.Height = 90;
+            ColumnDefinition c1 = new ColumnDefinition();
+            c1.Width = new GridLength(40, GridUnitType.Star);
+            ColumnDefinition c2 = new ColumnDefinition();
+            c2.Width = new GridLength(30, GridUnitType.Star);
+            ColumnDefinition c3 = new ColumnDefinition();
+            c3.Width = new GridLength(30, GridUnitType.Star);
+            grid.ColumnDefinitions.Add(c1);
+            grid.ColumnDefinitions.Add(c2);
+            grid.ColumnDefinitions.Add(c3);
+            grid.RowDefinitions.Add(new RowDefinition());
+            grid.ShowGridLines = true;
+            TextBlock sup_name = new TextBlock();
+            Grid.SetColumn(sup_name, 0);
+            sup_name.Text = rev.Reviewer_id;
+            Button edit = new Button();
+            Grid.SetColumn(edit, 1);
+            edit.Content = "Изменить";
+            Button del = new Button();
+            Grid.SetColumn(del, 2);
+            del.Content = "Удалить";
+
+            grid.Children.Add(sup_name);
+            grid.Children.Add(edit);
+            grid.Children.Add(del);
+        }
+        public static void catalogListItem(Grid grid, DiplomsDB.Models.Setter st)
+        {
+            grid.Width = 350;
+            //grid.HorizontalAlignment = HorizontalAlignment.Stretch;
+            grid.Height = 90;
+            ColumnDefinition c1 = new ColumnDefinition();
+            c1.Width = new GridLength(40, GridUnitType.Star);
+            ColumnDefinition c2 = new ColumnDefinition();
+            c2.Width = new GridLength(30, GridUnitType.Star);
+            ColumnDefinition c3 = new ColumnDefinition();
+            c3.Width = new GridLength(30, GridUnitType.Star);
+            grid.ColumnDefinitions.Add(c1);
+            grid.ColumnDefinitions.Add(c2);
+            grid.ColumnDefinitions.Add(c3);
+            grid.RowDefinitions.Add(new RowDefinition());
+            grid.ShowGridLines = true;
+            TextBlock sup_name = new TextBlock();
+            Grid.SetColumn(sup_name, 0);
+            sup_name.Text = st.Setter_id;
+            Button edit = new Button();
+            Grid.SetColumn(edit, 1);
+            edit.Content = "Изменить";
+            Button del = new Button();
+            Grid.SetColumn(del, 2);
+            del.Content = "Удалить";
+
+            grid.Children.Add(sup_name);
+            grid.Children.Add(edit);
+            grid.Children.Add(del);
+        }
+        public static void catalogListItem(Grid grid, Speciality spec)
+        {
+            grid.Width = 350;
+            //grid.HorizontalAlignment = HorizontalAlignment.Stretch;
+            grid.Height = 90;
+            ColumnDefinition c1 = new ColumnDefinition();
+            c1.Width = new GridLength(40, GridUnitType.Star);
+            ColumnDefinition c2 = new ColumnDefinition();
+            c2.Width = new GridLength(30, GridUnitType.Star);
+            ColumnDefinition c3 = new ColumnDefinition();
+            c3.Width = new GridLength(30, GridUnitType.Star);
+            grid.ColumnDefinitions.Add(c1);
+            grid.ColumnDefinitions.Add(c2);
+            grid.ColumnDefinitions.Add(c3);
+            grid.RowDefinitions.Add(new RowDefinition());
+            grid.ShowGridLines = true;
+            TextBlock sup_name = new TextBlock();
+            Grid.SetColumn(sup_name, 0);
+            sup_name.Text = spec.Speciality_id;
+            Button edit = new Button();
+            Grid.SetColumn(edit, 1);
+            edit.Content = "Изменить";
+            Button del = new Button();
+            Grid.SetColumn(del, 2);
+            del.Content = "Удалить";
+
+            grid.Children.Add(sup_name);
+            grid.Children.Add(edit);
+            grid.Children.Add(del);
+        }
+        public static void catalogListItem(Grid grid, Chairman cha)
+        {
+            grid.Width = 350;
+            //grid.HorizontalAlignment = HorizontalAlignment.Stretch;
+            grid.Height = 90;
+            ColumnDefinition c1 = new ColumnDefinition();
+            c1.Width = new GridLength(40, GridUnitType.Star);
+            ColumnDefinition c2 = new ColumnDefinition();
+            c2.Width = new GridLength(30, GridUnitType.Star);
+            ColumnDefinition c3 = new ColumnDefinition();
+            c3.Width = new GridLength(30, GridUnitType.Star);
+            grid.ColumnDefinitions.Add(c1);
+            grid.ColumnDefinitions.Add(c2);
+            grid.ColumnDefinitions.Add(c3);
+            grid.RowDefinitions.Add(new RowDefinition());
+            grid.ShowGridLines = true;
+            TextBlock sup_name = new TextBlock();
+            Grid.SetColumn(sup_name, 0);
+            sup_name.Text = cha.Chairman_id;
             Button edit = new Button();
             Grid.SetColumn(edit, 1);
             edit.Content = "Изменить";

@@ -41,6 +41,7 @@ namespace DiplomsView
             //----rendering---------------------------------------------------
             list_filler.Fill();
             filter_filler.Fill(this.order_Select, this.spec_Select, this.supervisor_Select, this.setter_Select, this.reviewer_Select, this.comission_Select, this.form_p_Select);
+            
         }
 
         private void btn_Search_Click(object sender, RoutedEventArgs e)
@@ -169,64 +170,101 @@ namespace DiplomsView
                 (topic.Equals("") ? "" : "'" + topic + "'") +
                 '\n' + this.error_info.Text;
         }
-
         public void ShowDipDelSuccess(string topic)
         {
             this.error_info.Text = "Удален диплом " +
                 (topic.Equals("") ? "" : "'" + topic + "'") +
                 '\n' + this.error_info.Text;
         }
-
         public void ShowDipUpdSuccess(string info)
         {
             this.error_info.Text = "Изменен диплом " +
                 info +
                 '\n' + this.error_info.Text;
         }
-
         public void ShowSupDelSuccess(string id)
         {
             this.error_info.Text = "Удален руководитель " + id + '\n' + this.error_info.Text;
         }
-
         public void ShowSupUpdSuccess(string id)
         {
             this.error_info.Text = "Изменен руководитель " + id + '\n' + this.error_info.Text;
         }
-
         public void ShowSupAddSuccess(string id)
         {
             this.error_info.Text = "Добавлен руководитель " + id + '\n' + this.error_info.Text;
         }
-
         public void ShowOrdDelSuccess(string id)
         {
             this.error_info.Text = "Удален приказ " + id + '\n' + this.error_info.Text;
         }
-
         public void ShowOrdUpdSuccess(string id)
         {
             this.error_info.Text = "Изменен приказ " + id + '\n' + this.error_info.Text;
         }
-
         public void ShowOrdAddSuccess(string id)
         {
             this.error_info.Text = "Добавлен приказ " + id + '\n' + this.error_info.Text;
         }
-
         public void ShowComDelSuccess(string id)
         {
             this.error_info.Text = "Удалена комиссия по предзащите " + id + '\n' + this.error_info.Text;
         }
-
         public void ShowComUpdSuccess(string id)
         {
             this.error_info.Text = "Изменена комиссия по предзащите " + id + '\n' + this.error_info.Text;
         }
-
         public void ShowComAddSuccess(string id)
         {
             this.error_info.Text = "Добавлена комиссия по предзащите " + id + '\n' + this.error_info.Text;
+        }
+        public void ShowRevDelSuccess(string id)
+        {
+            this.error_info.Text = "Удален рецензент " + id + '\n' + this.error_info.Text;
+        }
+        public void ShowRevUpdSuccess(string id)
+        {
+            this.error_info.Text = "Изменен рецензент " + id + '\n' + this.error_info.Text;
+        }
+        public void ShowRevAddSuccess(string id)
+        {
+            this.error_info.Text = "Добавлен рецензент " + id + '\n' + this.error_info.Text;
+        }
+        public void ShowSetDelSuccess(string id)
+        {
+            this.error_info.Text = "Удален нормоконтролёр " + id + '\n' + this.error_info.Text;
+        }
+        public void ShowSetUpdSuccess(string id)
+        {
+            this.error_info.Text = "Изменен нормоконтролёр " + id + '\n' + this.error_info.Text;
+        }
+        public void ShowSetAddSuccess(string id)
+        {
+            this.error_info.Text = "Добавлен нормоконтролёр " + id + '\n' + this.error_info.Text;
+        }
+        public void ShowSpecDelSuccess(string id)
+        {
+            this.error_info.Text = "Удалена специальность " + id + '\n' + this.error_info.Text;
+        }
+        public void ShowSpecUpdSuccess(string id)
+        {
+            this.error_info.Text = "Изменена специальность " + id + '\n' + this.error_info.Text;
+        }
+        public void ShowSpecAddSuccess(string id)
+        {
+            this.error_info.Text = "Добавлена специальность " + id + '\n' + this.error_info.Text;
+        }
+        public void ShowChaDelSuccess(string id)
+        {
+            this.error_info.Text = "Удален председатель ГЭК " + id + '\n' + this.error_info.Text;
+        }
+        public void ShowChaUpdSuccess(string id)
+        {
+            this.error_info.Text = "Изменен председатель ГЭК " + id + '\n' + this.error_info.Text;
+        }
+        public void ShowChaAddSuccess(string id)
+        {
+            this.error_info.Text = "Добавлен председатель ГЭК " + id + '\n' + this.error_info.Text;
         }
 
         public void RefreshList(string topic)

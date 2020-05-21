@@ -10,7 +10,7 @@
     <Window.Resources>
 
     </Window.Resources>
-    <Grid ShowGridLines="True" >
+    <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="450"/>
             <ColumnDefinition/>
@@ -22,8 +22,8 @@
         </Grid.RowDefinitions>
 
 
-        <GroupBox Grid.Column="0" Grid.Row="1" BorderBrush="{x:Null}" Height="450" VerticalAlignment="Top">
-            <Grid x:Name="filterGrid" ShowGridLines="True" Height="450" VerticalAlignment="Top" >
+        <GroupBox Grid.Column="0" Grid.Row="1" BorderBrush="DarkBlue" Margin="10,10,10,0" VerticalAlignment="Top" Height="480" Background="AliceBlue">
+            <Grid x:Name="filterGrid"  Height="470" VerticalAlignment="Top" Margin="0,5,0,2" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -69,21 +69,35 @@
                 <DatePicker x:Name="deadline_Select" Grid.Column="1" Grid.Row="9"/>
                 <DatePicker x:Name="examdate_Select" Grid.Column="1" Grid.Row="10"/>
 
-                <Button x:Name="btn_Search" Content="Поиск" Grid.ColumnSpan="2" Grid.Row="11" Height="30" Width="400" Click="btn_Search_Click"/>
+                <Button x:Name="btn_Search" Content="Поиск" Grid.ColumnSpan="2" Grid.Row="11" Click="btn_Search_Click" Margin="0,20,0,20"/>
 
             </Grid>
 
         </GroupBox>
 
-        <ListView x:Name="diplomsList" Grid.Column="1" Grid.Row="1"></ListView>
+        <ListView x:Name="diplomsList" BorderBrush="{x:Null}" Grid.Column="1" Grid.Row="1" Margin="0,10,0,0"/>
 
-        <Button x:Name="btn_Add" Content="Добавить" HorizontalAlignment="Left" Margin="22,533,0,0" Grid.Row="1" VerticalAlignment="Top" Width="76" Height="50" Click="btn_Add_Click"/>
-        <TextBlock x:Name="error_info" Grid.Row="2" Grid.ColumnSpan="2"/>
-        <Button x:Name="btn_Delete" Content="Удалить" HorizontalAlignment="Left" Margin="103,533,0,0" Grid.Row="1" VerticalAlignment="Top" Width="76" Height="50" Click="btn_Delete_Click"/>
-        <Button x:Name="btn_Edit" Content="Редактировать" HorizontalAlignment="Left" Margin="184,533,0,0" Grid.Row="1" VerticalAlignment="Top" Width="76" Height="50" Click="btn_Edit_Click"/>
+        <WrapPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="1" Width="450" VerticalAlignment="Bottom" Margin="15,0,15,20">
+            <Button x:Name="btn_Add" Content="Добавить" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Top" Width="140" Height="80" Click="btn_Add_Click"/>
+            <Button x:Name="btn_Delete" Content="Удалить" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="140" Height="80" Click="btn_Delete_Click"/>
+            <Button x:Name="btn_Edit" Content="Редактировать" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Top" Width="140" Height="80" Click="btn_Edit_Click"/>
+        </WrapPanel>
         
-        <Button x:Name="btnSupsCat" Content="Руководители" Tag="1" HorizontalAlignment="Left" Margin="23,0,0,0" VerticalAlignment="Top" Width="106" Height="40" Click="btn_ShowCat"/>
-        <Button x:Name="btnOrdCat" Content="Приказы" Tag="2" HorizontalAlignment="Left" Margin="134,0,0,0" VerticalAlignment="Top" Width="106" Height="40" Click="btn_ShowCat"/>
-        <Button x:Name="btnComCat" Content="Комиссии" Tag="3" HorizontalAlignment="Left" Margin="245,0,0,0" VerticalAlignment="Top" Width="106" Height="40" Click="btn_ShowCat"/>
+        <ScrollViewer Grid.Row="2" Grid.ColumnSpan="2">
+            <TextBlock x:Name="error_info" />
+        </ScrollViewer>
+
+        
+
+        <WrapPanel x:Name="admin_btns" Grid.Row="0" Grid.ColumnSpan="2" ItemWidth="150" HorizontalAlignment="Center">
+            <Button x:Name="btnSupsCat" Content="Руководители" Tag="1"   Height="40" Click="btn_ShowCat"/>
+            <Button x:Name="btnOrdCat" Content="Приказы" Tag="2"   Height="40" Click="btn_ShowCat"/>
+            <Button x:Name="btnComCat" Content="Комиссии" Tag="3"   Height="40" Click="btn_ShowCat"/>
+            <Button x:Name="btnRevCat" Content="Рецензенты" Tag="4"   Height="40" Click="btn_ShowCat"/>
+            <Button x:Name="btnSetCat" Content="Нормоконтролеры" Tag="5" Height="40" Click="btn_ShowCat" Grid.ColumnSpan="2"/>
+            <Button x:Name="btnSpecCat" Content="Специальности" Tag="6"  Height="40" Click="btn_ShowCat" Grid.Column="1"/>
+            <Button x:Name="btnChaCat" Content="Председатели ГЭК" Tag="7" Height="40" Click="btn_ShowCat" Grid.Column="1"/>
+        </WrapPanel>
+
     </Grid>
 </Window>

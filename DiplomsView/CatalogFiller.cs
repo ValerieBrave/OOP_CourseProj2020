@@ -73,6 +73,54 @@ namespace DiplomsView
             ((Button)edit).Click += new RoutedEventHandler(OpenEditCatElement);
             return rc;
         }
+        public Grid getGrid(Reviewer rev)
+        {
+            Grid rc = new Grid();
+            Styler.catalogListItem(rc, rev);
+            var del = rc.Children.OfType<Button>().Where(i => (Grid.GetColumn(i) == 2)).First<Button>();
+            var edit = rc.Children.OfType<Button>().Where(i => (Grid.GetColumn(i) == 1)).First<Button>();
+            ((Button)del).Tag = rev.Reviewer_id;
+            ((Button)del).Click += new RoutedEventHandler(OpenSureToDel);
+            ((Button)edit).Tag = rev.Reviewer_id;
+            ((Button)edit).Click += new RoutedEventHandler(OpenEditCatElement);
+            return rc;
+        }
+        public Grid getGrid(DiplomsDB.Models.Setter st)
+        {
+            Grid rc = new Grid();
+            Styler.catalogListItem(rc, st);
+            var del = rc.Children.OfType<Button>().Where(i => (Grid.GetColumn(i) == 2)).First<Button>();
+            var edit = rc.Children.OfType<Button>().Where(i => (Grid.GetColumn(i) == 1)).First<Button>();
+            ((Button)del).Tag = st.Setter_id;
+            ((Button)del).Click += new RoutedEventHandler(OpenSureToDel);
+            ((Button)edit).Tag = st.Setter_id;
+            ((Button)edit).Click += new RoutedEventHandler(OpenEditCatElement);
+            return rc;
+        }
+        public Grid getGrid(Speciality spec)
+        {
+            Grid rc = new Grid();
+            Styler.catalogListItem(rc, spec);
+            var del = rc.Children.OfType<Button>().Where(i => (Grid.GetColumn(i) == 2)).First<Button>();
+            var edit = rc.Children.OfType<Button>().Where(i => (Grid.GetColumn(i) == 1)).First<Button>();
+            ((Button)del).Tag = spec.Speciality_id;
+            ((Button)del).Click += new RoutedEventHandler(OpenSureToDel);
+            ((Button)edit).Tag = spec.Speciality_id;
+            ((Button)edit).Click += new RoutedEventHandler(OpenEditCatElement);
+            return rc;
+        }
+        public Grid getGrid(Chairman cha)
+        {
+            Grid rc = new Grid();
+            Styler.catalogListItem(rc, cha);
+            var del = rc.Children.OfType<Button>().Where(i => (Grid.GetColumn(i) == 2)).First<Button>();
+            var edit = rc.Children.OfType<Button>().Where(i => (Grid.GetColumn(i) == 1)).First<Button>();
+            ((Button)del).Tag = cha.Chairman_id;
+            ((Button)del).Click += new RoutedEventHandler(OpenSureToDel);
+            ((Button)edit).Tag = cha.Chairman_id;
+            ((Button)edit).Click += new RoutedEventHandler(OpenEditCatElement);
+            return rc;
+        }
         public void Fill(int id)
         {
             try
@@ -94,6 +142,30 @@ namespace DiplomsView
                     name.Content = "Комиссии по предзащите:";
                     List<Comission> coms = db.GetAllComissionsList();
                     foreach (Comission c in coms) catalog.Items.Add(getGrid(c));
+                }
+                if(id == 4)     //Reviewers
+                {
+                    name.Content = "Рецензенты:";
+                    List<Reviewer> revs = db.GetAllReviewersList();
+                    foreach (Reviewer r in revs) catalog.Items.Add(getGrid(r));
+                }
+                if(id == 5)     //Setter
+                {
+                    name.Content = "Нормоконтролёры:";
+                    List<DiplomsDB.Models.Setter> sets = db.GetAllSettersList();
+                    foreach (DiplomsDB.Models.Setter s in sets) catalog.Items.Add(getGrid(s));
+                }
+                if(id == 6)     //Speciality
+                {
+                    name.Content = "Специальности:";
+                    List<Speciality> sps = db.GetAllSpecialitiesList();
+                    foreach (Speciality s in sps) catalog.Items.Add(getGrid(s));
+                }
+                if(id == 7) //Chairman
+                {
+                    name.Content = "Председатели ГЭК:";
+                    List<Chairman> chs = db.GetAllChairmenList();
+                    foreach (Chairman c in chs) catalog.Items.Add(getGrid(c));
                 }
             }
             catch(Exception ex)
@@ -126,6 +198,30 @@ namespace DiplomsView
             {
                 oldid.Text = del_id;
                 oldid_help.Text = "Председатель комиссии:";
+                newid_help.Text = "Новый председатель:";
+            }
+            if (cat_id == 4)
+            {
+                oldid.Text = del_id;
+                oldid_help.Text = "Рецензент:";
+                newid_help.Text = "Новый рецензент:";
+            }
+            if (cat_id == 5)
+            {
+                oldid.Text = del_id;
+                oldid_help.Text = "Нормоконтролёр:";
+                newid_help.Text = "Новый нормоконтролёр:";
+            }
+            if (cat_id == 6)
+            {
+                oldid.Text = del_id;
+                oldid_help.Text = "Специальность:";
+                newid_help.Text = "Новая специальность:";
+            }
+            if (cat_id == 7)
+            {
+                oldid.Text = del_id;
+                oldid_help.Text = "Председатель ГЭК:";
                 newid_help.Text = "Новый председатель:";
             }
         }

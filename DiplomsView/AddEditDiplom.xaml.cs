@@ -214,7 +214,7 @@ namespace DiplomsView
 
             try
             {
-                d_or = (Order)this.order_select.SelectedItem;
+                d_or = (Order)this.order_select.SelectedItem == null? db.GetOrderById("--не назначен--"): (Order)this.order_select.SelectedItem;
                 if ((bool)this.form_p_select.IsChecked) d_form = "п";
                 else d_form = "р";
                 d_student = this.student_select.Text;
@@ -389,6 +389,54 @@ namespace DiplomsView
         public void ShowComAddSuccess(string id)
         {
             this.error_info.Text = "Добавлена комиссия по предзащите " + id + '\n' + this.error_info.Text;
+        }
+        public void ShowRevDelSuccess(string id)
+        {
+            this.error_info.Text = "Удален рецензент " + id + '\n' + this.error_info.Text;
+        }
+        public void ShowRevUpdSuccess(string id)
+        {
+            this.error_info.Text = "Изменен рецензент " + id + '\n' + this.error_info.Text;
+        }
+        public void ShowRevAddSuccess(string id)
+        {
+            this.error_info.Text = "Добавлен рецензент " + id + '\n' + this.error_info.Text;
+        }
+        public void ShowSetDelSuccess(string id)
+        {
+            this.error_info.Text = "Удален нормоконтролёр " + id + '\n' + this.error_info.Text;
+        }
+        public void ShowSetUpdSuccess(string id)
+        {
+            this.error_info.Text = "Изменен нормоконтролёр " + id + '\n' + this.error_info.Text;
+        }
+        public void ShowSetAddSuccess(string id)
+        {
+            this.error_info.Text = "Добавлен нормоконтролёр " + id + '\n' + this.error_info.Text;
+        }
+        public void ShowSpecDelSuccess(string id)
+        {
+            this.error_info.Text = "Удалена специальность " + id + '\n' + this.error_info.Text;
+        }
+        public void ShowSpecUpdSuccess(string id)
+        {
+            this.error_info.Text = "Изменена специальность " + id + '\n' + this.error_info.Text;
+        }
+        public void ShowSpecAddSuccess(string id)
+        {
+            this.error_info.Text = "Добавлена специальность " + id + '\n' + this.error_info.Text;
+        }
+        public void ShowChaDelSuccess(string id)
+        {
+            this.error_info.Text = "Удален председатель ГЭК " + id + '\n' + this.error_info.Text;
+        }
+        public void ShowChaUpdSuccess(string id)
+        {
+            this.error_info.Text = "Изменен председатель ГЭК " + id + '\n' + this.error_info.Text;
+        }
+        public void ShowChaAddSuccess(string id)
+        {
+            this.error_info.Text = "Добавлен председатель ГЭК " + id + '\n' + this.error_info.Text;
         }
         private void AddEditDiplom_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {

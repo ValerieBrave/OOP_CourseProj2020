@@ -33,5 +33,29 @@ namespace DiplomsDB.Models
             this.SaveChanges();
             this.comDeleted(id);
         }
+        public void DeleteReviewer(string id)
+        {
+            this.Reviewers.Remove(this.GetReviewerById(id));
+            this.SaveChanges();
+            this.revDeleted(id);
+        }
+        public void DeleteSetter(string id)
+        {
+            this.Setters.Remove(this.GetSetterById(id));
+            this.SaveChanges();
+            this.setDeleted(id);
+        }
+        public void DeleteSpeciality(string id)
+        {
+            this.Specialities.Remove(this.GetSpecialityById(id));
+            this.SaveChanges();
+            this.specDeleted(id);
+        }
+        public void DeleteChairman(string id)
+        {
+            this.Chairmen.Remove(this.GetChairmanById(id));
+            this.SaveChanges();
+            this.chaDeleted(id);
+        }
     }
 }

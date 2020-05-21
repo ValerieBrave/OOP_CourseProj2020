@@ -116,8 +116,8 @@ namespace DiplomsView
                 else rb.IsChecked = true;
                 topic.Text = to_edit.Topic;
                 student.Text = to_edit.Student_name;
-                dealine.SelectedDate = to_edit.Deadline;
-                exam.SelectedDate = to_edit.ExamDate;
+                dealine.SelectedDate = to_edit.Deadline == DateTime.MinValue? null : to_edit.Deadline;
+                exam.SelectedDate = to_edit.ExamDate == DateTime.MinValue ? null : to_edit.ExamDate;
                 pos.Text = to_edit.Date_position.ToString();
                 mark.Text = to_edit.Mark.ToString();
             }

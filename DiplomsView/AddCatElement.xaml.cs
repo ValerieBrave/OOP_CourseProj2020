@@ -34,7 +34,7 @@ namespace DiplomsView
             db = d;
             handler = h;
             cat_id = c_id;
-            if(cat_id == 1) // Supervisors -> +email
+            if (cat_id == 1) // Supervisors -> +email
             {
                 this.cat_name_help.Text = "Добавление нового руководителя";
                 //---------------------------
@@ -54,8 +54,12 @@ namespace DiplomsView
                 email.FontSize = 16;
                 grid.Children.Add(email);
             }
-            else if(cat_id == 2) this.cat_name_help.Text = "Добавление нового приказа";
-            else if(cat_id == 3) this.cat_name_help.Text = "Добавление новой комиссии";
+            else if (cat_id == 2) this.cat_name_help.Text = "Добавление нового приказа";
+            else if (cat_id == 3) this.cat_name_help.Text = "Добавление новой комиссии";
+            else if (cat_id == 4) this.cat_name_help.Text = "Добавление нового рецензента";
+            else if (cat_id == 5) this.cat_name_help.Text = "Добавление нового нормоконтролёра";
+            else if (cat_id == 6) this.cat_name_help.Text = "Добавление новой специальности";
+            else if (cat_id == 7) this.cat_name_help.Text = "Добавление нового председателя ГЭК";
         }
         private void btn_AddElement_Click(object sender, RoutedEventArgs e)
         {
@@ -90,6 +94,46 @@ namespace DiplomsView
                     if(!com.Comission_id.Equals(""))
                     {
                         db.AddComission(com);
+                        add = true;
+                    }
+                }
+                if (cat_id == 4)    //Reviewer
+                {
+                    Reviewer rev = new Reviewer();
+                    rev.Reviewer_id = this.new_id.Text.Equals("") ? "" : this.new_id.Text;
+                    if(!rev.Reviewer_id.Equals(""))
+                    {
+                        db.AddReviewer(rev);
+                        add = true;
+                    }
+                }
+                if (cat_id == 5)    // Setter
+                {
+                    DiplomsDB.Models.Setter st = new DiplomsDB.Models.Setter();
+                    st.Setter_id = this.new_id.Text.Equals("") ? "" : this.new_id.Text;
+                    if(!st.Setter_id.Equals(""))
+                    {
+                        db.AddSetter(st);
+                        add = true;
+                    }
+                }
+                if (cat_id == 6)    //Speciality
+                {
+                    Speciality sp = new Speciality();
+                    sp.Speciality_id = this.new_id.Text.Equals("") ? "" : this.new_id.Text;
+                    if(!sp.Speciality_id.Equals(""))
+                    {
+                        db.AddSpeciality(sp);
+                        add = true;
+                    }
+                }
+                if (cat_id == 7)    //Chairman
+                {
+                    Chairman ch = new Chairman();
+                    ch.Chairman_id = this.new_id.Text.Equals("") ? "" : this.new_id.Text;
+                    if(!ch.Chairman_id.Equals(""))
+                    {
+                        db.AddChairman(ch);
                         add = true;
                     }
                 }

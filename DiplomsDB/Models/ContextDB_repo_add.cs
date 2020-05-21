@@ -33,6 +33,7 @@ namespace DiplomsDB.Models
             this.Reviewers.Add(rev);
             rc = rev;
             this.SaveChanges();
+            this.revAdded(rev.Reviewer_id);
             return rc;
         }
         public Setter AddSetter(Setter se)
@@ -41,6 +42,7 @@ namespace DiplomsDB.Models
             this.Setters.Add(se);
             rc = se;
             this.SaveChanges();
+            this.setAdded(se.Setter_id);
             return rc;
         }
         public Speciality AddSpeciality(Speciality sp)
@@ -49,6 +51,7 @@ namespace DiplomsDB.Models
             this.Specialities.Add(sp);
             rc = sp;
             this.SaveChanges();
+            this.specAdded(sp.Speciality_id);
             return rc;
         }
         public Supervisor AddSupervisor(Supervisor su)
@@ -66,6 +69,7 @@ namespace DiplomsDB.Models
             this.Chairmen.Add(ch);
             rc = ch;
             this.SaveChanges();
+            this.chaAdded(ch.Chairman_id);
             return rc;
         }
         public Comission AddComission(Comission co)

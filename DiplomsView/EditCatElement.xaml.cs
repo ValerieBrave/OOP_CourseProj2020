@@ -113,6 +113,50 @@ namespace DiplomsView
                         edit = true;
                     }
                 }
+                else if(cat_id == 4)
+                {
+                    if (this.new_id.Text != "")
+                    {
+                        Reviewer old_rev = db.GetReviewerById(this.edit_id);
+                        Reviewer new_rev = new Reviewer();
+                        new_rev.Reviewer_id = this.new_id.Text;
+                        db.UpdReviewer(this.edit_id, new_rev);
+                        edit = true;
+                    }
+                }
+                else if (cat_id == 5)
+                {
+                    if (this.new_id.Text != "")
+                    {
+                        DiplomsDB.Models.Setter old_set = db.GetSetterById(this.edit_id);
+                        DiplomsDB.Models.Setter new_set = new DiplomsDB.Models.Setter();
+                        new_set.Setter_id = this.new_id.Text;
+                        db.UpdSetter(this.edit_id, new_set);
+                        edit = true;
+                    }
+                }
+                else if (cat_id == 6)
+                {
+                    if (this.new_id.Text != "")
+                    {
+                        Speciality old_spec = db.GetSpecialityById(this.edit_id);
+                        Speciality new_spec = new Speciality();
+                        new_spec.Speciality_id = this.new_id.Text;
+                        db.UpdSpeciality(this.edit_id, new_spec);
+                        edit = true;
+                    }
+                }
+                else if (cat_id == 7)
+                {
+                    if (this.new_id.Text != "")
+                    {
+                        Chairman old_ch = db.GetChairmanById(this.edit_id);
+                        Chairman new_ch = new Chairman();
+                        new_ch.Chairman_id = this.new_id.Text;
+                        db.UpdChairman(this.edit_id, new_ch);
+                        edit = true;
+                    }
+                }
             }
             catch(Exception ex)
             {

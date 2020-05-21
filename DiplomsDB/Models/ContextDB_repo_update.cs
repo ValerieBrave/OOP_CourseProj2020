@@ -37,25 +37,46 @@ namespace DiplomsDB.Models
         public bool UpdReviewer(string oldid, Reviewer rev)
         {
             bool rc = true;
-            Reviewer olr = this.GetReviewerById(oldid);
-            olr.Update(rev);
+            //Reviewer olr = this.GetReviewerById(oldid);
+            //olr.Update(rev);
+            string query = "update Reviewers set Reviewer_id = '"
+               + rev.Reviewer_id
+               + "' where Reviewer_id like '"
+               + oldid
+               + "'";
+            var o = this.Database.ExecuteSqlCommand(query);
             this.SaveChanges();
+            this.revUpdated(oldid);
             return rc;
         }
         public bool UpdSetter(string oldid, Setter se)
         {
             bool rc = true;
-            Setter ols = this.GetSetterById(oldid);
-            ols.Update(se);
+            //Setter ols = this.GetSetterById(oldid);
+            //ols.Update(se);
+            string query = "update Setters set Setter_id = '"
+               + se.Setter_id
+               + "' where Setter_id like '"
+               + oldid
+               + "'";
+            var o = this.Database.ExecuteSqlCommand(query);
             this.SaveChanges();
+            this.setUpdated(oldid);
             return rc;
         }
         public bool UpdSpeciality(string oldid, Speciality sp)
         {
             bool rc = true;
-            Speciality ols = this.GetSpecialityById(oldid);
-            ols.Update(sp);
+            //Speciality ols = this.GetSpecialityById(oldid);
+            //ols.Update(sp);
+            string query = "update Specialities set Speciality_id = '"
+                + sp.Speciality_id
+                + "' where Speciality_id like '"
+                + oldid
+                + "'";
+            var s = this.Database.ExecuteSqlCommand(query);
             this.SaveChanges();
+            this.specUpdated(oldid);
             return rc;
         }
         public bool UpdSupervisor(string oldid, Supervisor su)
@@ -76,9 +97,16 @@ namespace DiplomsDB.Models
         public bool UpdChairman(string oldid, Chairman ch)
         {
             bool rc = true;
-            Chairman olc = this.GetChairmanById(oldid);
-            olc.Update(ch);
+            //Chairman olc = this.GetChairmanById(oldid);
+            //olc.Update(ch);
+            string query = "update Chairmen set Chairman_id = '"
+                + ch.Chairman_id
+                + "' where Chairman_id like '"
+                + oldid
+                + "'";
+            var s = this.Database.ExecuteSqlCommand(query);
             this.SaveChanges();
+            this.chaUpdated(oldid);
             return rc;
         }
         public bool UpdComission(string oldid, Comission co)

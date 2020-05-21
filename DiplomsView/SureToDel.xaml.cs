@@ -57,19 +57,19 @@ namespace DiplomsView
             this.ex_handler = h;
             this.catalog_id = cat_id;
             FillInfo(todel_id);
-
         }
         private void btn_DelDip_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 if (selected != null) db.DeleteDiplom((int)selected.Tag);
-                else if (catalog_id == 1)    //значит удаляем руководителей
-                {
-                    db.DeleteSupervisor(this.info.Text);
-                }
+                else if (catalog_id == 1) db.DeleteSupervisor(this.info.Text);   //значит удаляем руководителей
                 else if (catalog_id == 2) db.DeleteOrder(this.info.Text);
                 else if (catalog_id == 3) db.DeleteComission(this.info.Text);
+                else if (catalog_id == 4) db.DeleteReviewer(this.info.Text);
+                else if (catalog_id == 5) db.DeleteSetter(this.info.Text);
+                else if (catalog_id == 6) db.DeleteSpeciality(this.info.Text);
+                else if (catalog_id == 7) db.DeleteChairman(this.info.Text);
             }
             catch (Exception ex)
             {
