@@ -70,7 +70,7 @@ namespace DiplomsView
                 {
                     Supervisor sup = new Supervisor();
                     sup.Supervisor_id = this.new_id.Text.Equals("") ? "" : this.new_id.Text;
-                    //sup.Mail = this.email.Text.Equals("") ? "": this.email.Text;
+                    sup.Mail = this.email.Text.Equals("") ? "": this.email.Text;
                     if(!sup.Supervisor_id.Equals(""))   // email может быть пустым
                     {
                         db.AddSupervisor(sup);

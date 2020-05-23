@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="900">
 
-    <Window.Resources>
-
-    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding x:Name="adm" Command="local:Command.AdminMode" Executed="adm_Executed"/>
+    </Window.CommandBindings>
     <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="450"/>

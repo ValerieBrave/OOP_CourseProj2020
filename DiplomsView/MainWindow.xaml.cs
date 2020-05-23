@@ -42,7 +42,8 @@ namespace DiplomsView
             //----rendering---------------------------------------------------
             list_filler.Fill();
             filter_filler.Fill(this.order_Select, this.spec_Select, this.supervisor_Select, this.setter_Select, this.reviewer_Select, this.comission_Select, this.form_p_Select);
-            
+            this.admin_btns.IsEnabled = false;
+            this.admin_btns.Visibility = Visibility.Hidden;
         }
 
         private void btn_Search_Click(object sender, RoutedEventArgs e)
@@ -305,5 +306,33 @@ namespace DiplomsView
             Subscriber.Subscribe(cat);
             cat.ShowDialog();
         }
+
+        private void adm_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            if(this.admin_btns.IsEnabled)
+            {
+                this.admin_btns.IsEnabled = false;
+                this.admin_btns.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                this.admin_btns.IsEnabled = true;
+                this.admin_btns.Visibility = Visibility.Visible;
+            }
+            this.UpdateLayout();
+        }
+    }
+    public static class Command
+    {
+        private static readonly RoutedUICommand _admin = new RoutedUICommand("admin panel", "AdminMode", typeof(Command));
+        
+        public static RoutedUICommand AdminMode
+        {
+            get {
+                _admin.InputGestures.Add(new KeyGesture(Key.A, ModifierKeys.Control));
+                return _admin;
+            }
+        }
     }
 }
+

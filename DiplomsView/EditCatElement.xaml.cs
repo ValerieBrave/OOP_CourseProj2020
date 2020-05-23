@@ -52,9 +52,8 @@ namespace DiplomsView
                 new_email = new TextBox();
                 Grid.SetRow(new_email, 2);
                 Grid.SetColumnSpan(new_email, 2);
+                new_email.Text = "Новый адрес:";
                 new_email.Margin = new Thickness(10, 97, 10, 72);
-                new_email.Name = "new_email";
-                new_email.Text = "new_email";
                 grid.Children.Add(new_email);
                 //---------------------------
                 old_email_help = new TextBlock();
@@ -83,12 +82,9 @@ namespace DiplomsView
                     Supervisor old_sup = db.GetSupervisorById(this.edit_id);
                     Supervisor new_sup = new Supervisor();
                     new_sup.Supervisor_id = this.new_id.Text != "" ? this.new_id.Text : old_sup.Supervisor_id;
-                    // new_sup.Mail = this.new_email.Text != "" ? this.new_email.Text : old_sup.Mail
-                    if (new_sup.Supervisor_id != "")    // || new_sup.Mail != ""
-                    {
-                        db.UpdSupervisor(this.edit_id, new_sup);
-                        edit = true;
-                    }
+                    new_sup.Mail = this.new_email.Text != "" ? this.new_email.Text : old_sup.Mail;
+                    db.UpdSupervisor(this.edit_id, new_sup);
+                    edit = true; 
                 }
                 else if(cat_id == 2)
                 {

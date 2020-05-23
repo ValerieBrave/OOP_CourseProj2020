@@ -18,55 +18,73 @@ namespace DiplomsView
             expander.FontSize = 16;
             expander.FontFamily = new FontFamily("Yu Gothic UI");
             expander.Content = new Grid();
-            expander.HorizontalAlignment = HorizontalAlignment.Stretch;
+            //expander.HorizontalAlignment = HorizontalAlignment.Stretch;
             ((Grid)expander.Content).Height = 120;
+            ((Grid)expander.Content).HorizontalAlignment = HorizontalAlignment.Stretch;
             ((Grid)expander.Content).ColumnDefinitions.Add(new ColumnDefinition());
             ((Grid)expander.Content).ColumnDefinitions.Add(new ColumnDefinition());
+            ((Grid)expander.Content).ColumnDefinitions.Add(new ColumnDefinition());
             ((Grid)expander.Content).RowDefinitions.Add(new RowDefinition());
             ((Grid)expander.Content).RowDefinitions.Add(new RowDefinition());
             ((Grid)expander.Content).RowDefinitions.Add(new RowDefinition());
-            ((Grid)expander.Content).ShowGridLines = true;
+            
         }
         public static void dipExpanderContent(Expander expander, Diplom diplom)
         {
             expander.Header = new TextBlock();
-            ((TextBlock)expander.Header).Text = diplom.Topic + ", "+", "+diplom.Form+ ", " + diplom.Student_name+ ", " + diplom.Order_id;
+
             ((TextBlock)expander.Header).Text = '[' + diplom.Order_id + ']'
                 + '-' + diplom.Form
                 + '-' + diplom.Speciality_id
                 + "-студ.-" + diplom.Student_name
                 + "-рук. -" + diplom.Supervisor_id;
             ((TextBlock)expander.Header).Height = 50;
-            TextBlock supervisor = new TextBlock() { Text = "Руководитель: " + diplom.Supervisor_id };
-            TextBlock comission = new TextBlock() { Text = "Комиссия: " + diplom.Comission_id };
-            TextBlock reviewer = new TextBlock() { Text = "Рецензент: " + diplom.Reviewer_id };
-            TextBlock setter = new TextBlock() { Text = "Нормоконтролер: " + diplom.Setter_id };
-            TextBlock speciality = new TextBlock() { Text = "Специальность: " + diplom.Speciality_id };
-            TextBlock chairman = new TextBlock() { Text = "Председатель: " + diplom.Chairman_id };
-            supervisor.FontSize = 14;
+            TextBlock reviewer = new TextBlock() { Text = "Рецензент: " + diplom.Reviewer_id, Margin=new Thickness(20,10,10,10) };
+            TextBlock comission = new TextBlock() { Text = "Комиссия: " + diplom.Comission_id, Margin = new Thickness(20, 10, 10, 10) };
+            TextBlock setter = new TextBlock() { Text = "Нормоконтролер: " + diplom.Setter_id, Margin = new Thickness(20, 10, 10, 10) };
+            TextBlock chairman = new TextBlock() { Text = "Председатель: " + diplom.Chairman_id, Margin = new Thickness(20, 10, 10, 10) };
+            TextBlock deadline = new TextBlock() { Text = "Срок предоставления: " + (diplom.Deadline.Equals(DateTime.MinValue) ? "" : diplom.Deadline.ToString()), Margin = new Thickness(20, 10, 10, 10) };
+            TextBlock exam = new TextBlock() { Text = "Защита: " + (diplom.ExamDate.Equals(DateTime.MinValue)? "": diplom.ExamDate.ToString()), Margin = new Thickness(20, 10, 10, 10) };
+            TextBlock topic = new TextBlock() { Text = "Тема: " + diplom.Topic, Margin = new Thickness(20, 10, 10, 10) };
+            TextBlock queue = new TextBlock() { Text = "Очередь: " + (diplom.Date_position ==0? "" : diplom.Date_position.ToString()), Margin = new Thickness(20, 10, 10, 10) };
+            TextBlock mark = new TextBlock() { Text = "Оценка: " + (diplom.Mark==0? "": diplom.Mark.ToString()), Margin = new Thickness(20, 10, 10, 10) };
             comission.FontSize = 14;
             reviewer.FontSize = 14;
             setter.FontSize = 14;
-            speciality.FontSize = 14;
             chairman.FontSize = 14;
-            Grid.SetColumn(supervisor, 0);
-            Grid.SetRow(supervisor, 0);
-            Grid.SetColumn(comission, 1);
-            Grid.SetRow(comission, 0);
+            deadline.FontSize = 14;
+            exam.FontSize = 14;
+            topic.FontSize = 14;
+            queue.FontSize = 14;
+            mark.FontSize = 14;
             Grid.SetColumn(reviewer, 0);
-            Grid.SetRow(reviewer, 1);
-            Grid.SetColumn(setter, 1);
-            Grid.SetRow(setter, 1);
-            Grid.SetColumn(speciality, 0);
-            Grid.SetRow(speciality, 2);
+            Grid.SetRow(reviewer, 0);
+            Grid.SetColumn(comission, 0);
+            Grid.SetRow(comission, 1);
+            Grid.SetColumn(setter, 0);
+            Grid.SetRow(setter, 2);
             Grid.SetColumn(chairman, 1);
-            Grid.SetRow(chairman, 2);
-            ((Grid)expander.Content).Children.Add(supervisor);
-            ((Grid)expander.Content).Children.Add(comission);
+            Grid.SetRow(chairman, 0);
+            Grid.SetColumn(deadline, 1);
+            Grid.SetRow(deadline, 1);
+            Grid.SetColumn(exam, 1);
+            Grid.SetRow(exam, 3);
+            Grid.SetColumn(topic, 2);
+            Grid.SetRow(topic, 0);
+            Grid.SetColumn(queue, 2);
+            Grid.SetRow(queue, 1);
+            Grid.SetColumn(mark, 2);
+            Grid.SetRow(mark, 2);
+            
             ((Grid)expander.Content).Children.Add(reviewer);
+            ((Grid)expander.Content).Children.Add(comission);
             ((Grid)expander.Content).Children.Add(setter);
-            ((Grid)expander.Content).Children.Add(speciality);
             ((Grid)expander.Content).Children.Add(chairman);
+            ((Grid)expander.Content).Children.Add(deadline);
+            ((Grid)expander.Content).Children.Add(exam);
+            ((Grid)expander.Content).Children.Add(topic);
+            ((Grid)expander.Content).Children.Add(queue);
+            ((Grid)expander.Content).Children.Add(mark);
         }
         public static void catalogListItem(Grid grid, Supervisor sup)
         {

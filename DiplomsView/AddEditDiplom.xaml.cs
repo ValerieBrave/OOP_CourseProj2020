@@ -12,6 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Net.Mail;
+using System.Net;
 
 namespace DiplomsView
 {
@@ -25,6 +27,7 @@ namespace DiplomsView
         AddEditFormFiller filler;
         bool edit = false;
         Expander to_del = new Expander();
+        private string password = "21625";
         public AddEditDiplom()
         {
             InitializeComponent();
@@ -188,6 +191,23 @@ namespace DiplomsView
                             Mark = d_mark
                         };
                         this.db.AddDiplom(to_add);
+                        //---------SENDING MAIL
+                        if(!d_sup.Mail.Equals(""))
+                        {
+                            MailAddress mailAddressFrom = new MailAddress("smw60@mail.ru", "Зав.каф. ИСиТ");
+                            MailAddress mailAddressTo = new MailAddress(d_sup.Mail);
+                            MailMessage message = new MailMessage(mailAddressFrom, mailAddressTo);
+                            message.Body = "help pls a";
+                            SmtpClient smtpClient = new SmtpClient();
+                            smtpClient.Host = "smtp.mail.ru";
+                            smtpClient.Port = 587;
+                            smtpClient.EnableSsl = true;
+                            smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                            smtpClient.UseDefaultCredentials = false;
+                            smtpClient.Credentials = new NetworkCredential(mailAddressFrom.Address, password);
+                            smtpClient.Send(message);
+                        }
+                        
                     }
                     catch (Exception ex)
                     {

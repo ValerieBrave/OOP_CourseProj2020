@@ -179,7 +179,7 @@ namespace DiplomsView
             {
                 Supervisor sup = db.GetSupervisorById(ed_id);
                 oldid.Text = sup.Supervisor_id;
-                //oldemail.Text = sup.Mail
+                oldemail.Text = sup.Mail;
             }
             catch(Exception ex)
             {

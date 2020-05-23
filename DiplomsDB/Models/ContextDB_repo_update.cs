@@ -86,7 +86,7 @@ namespace DiplomsDB.Models
             //ols.Update(su);
             string query = "update Supervisors set Supervisor_id = '"
                 + su.Supervisor_id
-                + "' where Supervisor_id like '"
+                + "', Mail = '" + su.Mail + "' where Supervisor_id like '"
                 + oldid
                 + "'";
             var s = this.Database.ExecuteSqlCommand(query);

@@ -18,6 +18,10 @@ namespace DiplomsDB.Models
         [StringLength(50)]
         public string Supervisor_id { get; set; }
 
+        [StringLength(50)]
+        [EmailAddress]
+        public string Mail { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Diplom> Diploms { get; set; }
 
