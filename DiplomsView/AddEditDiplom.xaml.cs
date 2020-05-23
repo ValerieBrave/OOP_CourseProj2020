@@ -29,10 +29,10 @@ namespace DiplomsView
         {
             InitializeComponent();
         }
-        public AddEditDiplom(ContextDB c, dbExceptionHandler handler)
+        public AddEditDiplom(dbExceptionHandler handler)
         {
             InitializeComponent();
-            db = c;
+            db = SingleContext.getContext();
             ex_handler = handler;
             filler = new AddEditFormFiller(this.db, this.ex_handler);
             filler.FillAddForm(this.order_select,

@@ -31,7 +31,8 @@ namespace DiplomsView
         {
             InitializeComponent();
             //----creating objects-------
-            db = new ContextDB();
+            db = SingleContext.getContext();
+            //db = new ContextDB();
             ex_handler = new dbExceptionHandler();
             list_filler = new DiplomListFiller(this.diplomsList, db, ex_handler);
             filter_filler = new FilterFiller(this.filterGrid, db);
@@ -144,7 +145,7 @@ namespace DiplomsView
 
         private void btn_Add_Click(object sender, RoutedEventArgs e)
         {
-            AddEditDiplom add_form = new AddEditDiplom(this.db, ex_handler);
+            AddEditDiplom add_form = new AddEditDiplom(ex_handler);
             Subscriber.Subscribe(add_form);
             add_form.Show();
         }
@@ -156,6 +157,15 @@ namespace DiplomsView
                 AddEditDiplom edit_dip = new AddEditDiplom(this.db, this.ex_handler, (Expander)this.diplomsList.SelectedItem);
                 Subscriber.Subscribe(edit_dip);
                 edit_dip.ShowDialog();
+            }
+        }
+
+        private void btn_Delete_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.diplomsList.SelectedItem != null)
+            {
+                SureToDel sure_del = new SureToDel(ex_handler, (Expander)this.diplomsList.SelectedItem);
+                sure_del.ShowDialog();
             }
         }
 
@@ -287,18 +297,11 @@ namespace DiplomsView
             filter_filler.Fill(this.order_Select, this.spec_Select, this.supervisor_Select, this.setter_Select, this.reviewer_Select, this.comission_Select, this.form_p_Select);
         }
 
-        private void btn_Delete_Click(object sender, RoutedEventArgs e)
-        {
-            if(this.diplomsList.SelectedItem != null)
-            {
-                SureToDel sure_del = new SureToDel(db, ex_handler, (Expander)this.diplomsList.SelectedItem);
-                sure_del.ShowDialog();
-            }
-        }
+        
 
         private void btn_ShowCat(object sender, RoutedEventArgs e)
         {
-            Catalog cat = new Catalog(this.db, this.ex_handler, Int32.Parse(((Button)sender).Tag.ToString()));
+            Catalog cat = new Catalog(this.ex_handler, Int32.Parse(((Button)sender).Tag.ToString()));
             Subscriber.Subscribe(cat);
             cat.ShowDialog();
         }

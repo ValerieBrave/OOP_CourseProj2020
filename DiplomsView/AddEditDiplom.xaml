@@ -17,8 +17,8 @@
             <RowDefinition/>
             <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
-        <Border Grid.Column="1" Grid.Row="1" BorderThickness="1" BorderBrush="Aqua">
-            <Grid ShowGridLines="True" >
+        <!--<Border Grid.Column="1" Grid.Row="1" BorderThickness="1" BorderBrush="Aqua">-->
+            <Grid Grid.Column="1" Grid.Row="1">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -29,27 +29,40 @@
                     <RowDefinition/>
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                <ComboBox x:Name="order_select" Grid.Row="0"  Margin="10,10,321,10"/>
-                <RadioButton x:Name="form_p_select" Content="проект" Margin="312,26,168,12" FontSize="16" />
+                <ComboBox x:Name="order_select" Grid.Row="0"  Margin="10,33,321,2" Height="35" Style="{StaticResource ComboBoxAddForm}"/>
+                <RadioButton x:Name="form_p_select" Content="проект" Margin="322,28,158,10" FontSize="16" />
                 <RadioButton x:Name="form_w_select" Content="работа" Margin="440,28,10,10" FontSize="16"/>
-                <TextBox x:Name="student_select" Grid.Row="1" Margin="10,10,321,10"/>
-                <ComboBox x:Name="spec_select"  Grid.Row="1" Margin="312,10,10,10"/>
-                <TextBox x:Name="topic_select"  Grid.Row="2" Margin="10"/>
-                <ComboBox x:Name="supervisor_select"  Grid.Row="3" Margin="10,10,321,10"/>
-                <ComboBox x:Name="reviewer_select"  Grid.Row="3" Margin="312,10,10,10"/>
-                <ComboBox x:Name="comission_select" Grid.Row="4" Margin="10,10,421,10"/>
-                <ComboBox x:Name="setter_select" Grid.Row="4" Margin="196,10,218,10"/>
-                <ComboBox x:Name="chairman_select" Grid.Row="4" Margin="398,10,10,10"/>
-                <DatePicker x:Name="deadline_select" Grid.Row="5" Margin="10,10,321,10"/>
-                <DatePicker x:Name="examdate_select" Grid.Row="5" Margin="312,10,10,10"/>
-                <TextBox x:Name="position_select" Grid.Row="6" Margin="10,10,321,10"/>
-                <TextBox x:Name="mark_select" Grid.Row="6" Margin="312,10,10,10"/>
-                <Button x:Name="btn_Add" Content="ДОБАВИТЬ" Grid.Row="7" Click="btn_Add_Click"/>
+                <TextBox x:Name="student_select" Grid.Row="1" Margin="10,35,321,0"/>
+                <ComboBox x:Name="spec_select"  Grid.Row="1" Margin="312,35,10,0" Height="35" Style="{StaticResource ComboBoxAddForm}"/>
+                <TextBox x:Name="topic_select"  Grid.Row="2" Margin="10,30,10,0" Height="40"/>
+                <ComboBox x:Name="supervisor_select"  Grid.Row="3" Margin="10,34,321,0" Height="35" Style="{StaticResource ComboBoxAddForm}"/>
+                <ComboBox x:Name="reviewer_select"  Grid.Row="3" Margin="312,34,10,0" Height="35" Style="{StaticResource ComboBoxAddForm}"/>
+                <ComboBox x:Name="comission_select" Grid.Row="4" Margin="10,35,421,0" Height="35" Style="{StaticResource ComboBoxAddForm}"/>
+                <ComboBox x:Name="setter_select" Grid.Row="4" Margin="196,35,218,0" Height="35" Style="{StaticResource ComboBoxAddForm}"/>
+                <ComboBox x:Name="chairman_select" Grid.Row="4" Margin="398,35,10,0" Height="35" Style="{StaticResource ComboBoxAddForm}"/>
+                <DatePicker x:Name="deadline_select" Grid.Row="5" Margin="10,34,321,10" Height="25"/>
+                <DatePicker x:Name="examdate_select" Grid.Row="5" Margin="312,34,10,10" Height="25"/>
+                <TextBox x:Name="position_select" Grid.Row="6" Margin="10,30,321,10" Height="30"/>
+                <TextBox x:Name="mark_select" Grid.Row="6" Margin="312,30,10,10" Height="30"/>
+                <Button x:Name="btn_Add" Content="ДОБАВИТЬ" Grid.Row="7" Click="btn_Add_Click" Background="White" FontSize="16"/>
+                <Label Content="Приказ" FontSize="14" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Width="148"/>
+                <Label Content="ФИО студента" FontSize="14" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" Width="148" Grid.Row="1"/>
+                <Label Content="Специальность" FontSize="14" HorizontalAlignment="Left" Margin="312,6,0,0" VerticalAlignment="Top" Width="148" Grid.Row="1"/>
+                <Label Content="Тема" FontSize="14" HorizontalAlignment="Left" Margin="10,1,0,0" VerticalAlignment="Top" Width="148" Grid.Row="2"/>
+                <Label Content="Руководитель" FontSize="14" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="148" Grid.Row="3"/>
+                <Label Content="Рецензент" FontSize="14" HorizontalAlignment="Left" Margin="312,5,0,0" VerticalAlignment="Top" Width="148" Grid.Row="3"/>
+                <Label Content="Комиссия" FontSize="14" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" Width="148" Grid.Row="4"/>
+                <Label Content="Нормоконтролер" FontSize="14" HorizontalAlignment="Left" Margin="196,6,0,0" VerticalAlignment="Top" Width="148" Grid.Row="4"/>
+                <Label Content="Председатель ГЭК" FontSize="14" HorizontalAlignment="Left" Margin="398,6,0,0" VerticalAlignment="Top" Width="148" Grid.Row="4"/>
+                <Label Content="Срок сдачи" FontSize="14" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="148" Grid.Row="5"/>
+                <Label Content="Дата защиты" FontSize="14" HorizontalAlignment="Left" Margin="312,5,0,0" VerticalAlignment="Top" Width="148" Grid.Row="5"/>
+                <Label Content="Очередь" FontSize="14" HorizontalAlignment="Left" Margin="10,1,0,0" VerticalAlignment="Top" Width="148" Grid.Row="6"/>
+                <Label Content="Оценка" FontSize="14" HorizontalAlignment="Left" Margin="312,1,0,0" VerticalAlignment="Top" Width="148" Grid.Row="6"/>
             </Grid>
-        </Border>
+        
         <ScrollViewer  Grid.Row="2" Grid.ColumnSpan="3">
             <TextBlock x:Name="error_info"  />
         </ScrollViewer>
-        
+
     </Grid>
 </Window>

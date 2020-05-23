@@ -17,9 +17,9 @@ namespace DiplomsView
         Label name;
         ListBox catalog;
         int cat_id;
-        public CatalogFiller(ContextDB d, dbExceptionHandler h, Catalog c, ListBox cat, Label nam, int id)
+        public CatalogFiller(dbExceptionHandler h, Catalog c, ListBox cat, Label nam, int id)
         {
-            db = d;
+            db = SingleContext.getContext();
             handler = h;
             catalog = cat;
             cat_win = c;
@@ -28,12 +28,12 @@ namespace DiplomsView
         }
         private void OpenSureToDel(object sender, RoutedEventArgs e)
         {
-            SureToDel std = new SureToDel(db, handler, ((Button)sender).Tag.ToString(), cat_id);
+            SureToDel std = new SureToDel(handler, ((Button)sender).Tag.ToString(), cat_id);
             std.ShowDialog();
         }
         private void OpenEditCatElement(object sender, RoutedEventArgs e)
         {
-            EditCatElement ece = new EditCatElement(db, handler, this, ((Button)sender).Tag.ToString(), cat_id);
+            EditCatElement ece = new EditCatElement(handler, this, ((Button)sender).Tag.ToString(), cat_id);
             cat_win.Close();
             ece.ShowDialog();
         }

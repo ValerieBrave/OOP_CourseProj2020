@@ -33,10 +33,10 @@ namespace DiplomsView
         {
             InitializeComponent();
         }
-        public EditCatElement(ContextDB d, dbExceptionHandler h, CatalogFiller f, string e_id, int c_id)
+        public EditCatElement(dbExceptionHandler h, CatalogFiller f, string e_id, int c_id)
         {
             InitializeComponent();
-            db = d;
+            db = SingleContext.getContext();
             handler = h;
             filler = f;
             edit_id = e_id;
@@ -72,7 +72,6 @@ namespace DiplomsView
             }
             else filler.FillEditOthers(cat_id, edit_id, this.old_id, this.old_id_help, this.new_id_help);
         }
-
         private void btnSaveEdit_Click(object sender, RoutedEventArgs e)
         {
             bool edit = false;

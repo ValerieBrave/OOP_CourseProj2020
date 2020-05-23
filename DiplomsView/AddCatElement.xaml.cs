@@ -28,10 +28,10 @@ namespace DiplomsView
         {
             InitializeComponent();
         }
-        public AddCatElement(ContextDB d, dbExceptionHandler h, int c_id)
+        public AddCatElement(dbExceptionHandler h, int c_id)
         {
             InitializeComponent();
-            db = d;
+            db = SingleContext.getContext();
             handler = h;
             cat_id = c_id;
             if (cat_id == 1) // Supervisors -> +email

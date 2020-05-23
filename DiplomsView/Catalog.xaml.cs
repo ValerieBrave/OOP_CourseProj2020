@@ -28,13 +28,13 @@ namespace DiplomsView
         {
             InitializeComponent();
         }
-        public Catalog(ContextDB d, dbExceptionHandler h, int id)
+        public Catalog(dbExceptionHandler h, int id)
         {
             InitializeComponent();
-            db = d;
+            db = SingleContext.getContext();
             handler = h;
             cat_id = id;
-            filler = new CatalogFiller(db, handler, this, this.catalog, this.catalog_name, cat_id);
+            filler = new CatalogFiller(handler, this, this.catalog, this.catalog_name, cat_id);
             filler.Fill(cat_id);
         }
 
@@ -46,7 +46,7 @@ namespace DiplomsView
 
         private void btn_addElem_Click(object sender, RoutedEventArgs e)
         {
-            AddCatElement ace = new AddCatElement(db, handler, cat_id);
+            AddCatElement ace = new AddCatElement(handler, cat_id);
             ace.ShowDialog();
         }
 

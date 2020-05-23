@@ -56,12 +56,12 @@
                 <CheckBox x:Name="check_ExamDate"  Content="Экзамен"  Grid.Column="0" Grid.Row="10" Style="{StaticResource filter_check}" FontFamily="Century Gothic" VerticalAlignment="Center"/>
 
 
-                <ComboBox x:Name="order_Select" Grid.Column="1" Grid.Row="0"/>
-                <ComboBox x:Name="spec_Select" Grid.Column="1" Grid.Row="2"/>
-                <ComboBox x:Name="supervisor_Select" Grid.Column="1" Grid.Row="4"/>
-                <ComboBox x:Name="setter_Select" Grid.Column="1" Grid.Row="6"/>
-                <ComboBox x:Name="reviewer_Select" Grid.Column="1" Grid.Row="7"/>
-                <ComboBox x:Name="comission_Select" Grid.Column="1" Grid.Row="8"/>
+                <ComboBox x:Name="order_Select" Grid.Column="1" Grid.Row="0" Style="{StaticResource ComboBoxFilter}"/>
+                <ComboBox x:Name="spec_Select" Grid.Column="1" Grid.Row="2" Style="{StaticResource ComboBoxFilter}"/>
+                <ComboBox x:Name="supervisor_Select" Grid.Column="1" Grid.Row="4" Style="{StaticResource ComboBoxFilter}"/>
+                <ComboBox x:Name="setter_Select" Grid.Column="1" Grid.Row="6" Style="{StaticResource ComboBoxFilter}"/>
+                <ComboBox x:Name="reviewer_Select" Grid.Column="1" Grid.Row="7" Style="{StaticResource ComboBoxFilter}"/>
+                <ComboBox x:Name="comission_Select" Grid.Column="1" Grid.Row="8" Style="{StaticResource ComboBoxFilter}"/>
                 <RadioButton x:Name="form_w_Select" Content="работа" Grid.Column="1" HorizontalAlignment="Left" Margin="5,10,0,0" Grid.Row="1" VerticalAlignment="Top"/>
                 <RadioButton x:Name="form_p_Select" Content="проект" Grid.Column="1" HorizontalAlignment="Left" Margin="78,10,0,0" Grid.Row="1" VerticalAlignment="Top"/>
                 <TextBox x:Name="student_Select" Grid.Column="1" Grid.Row="3"/>
@@ -75,28 +75,31 @@
 
         </GroupBox>
 
-        <ListView x:Name="diplomsList" BorderBrush="{x:Null}" Grid.Column="1" Grid.Row="1" Margin="0,10,0,0"/>
+        <ListView x:Name="diplomsList"  BorderBrush="{x:Null}" Grid.Column="1" Grid.Row="1" Margin="0,10,0,0"/>
 
         <WrapPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="1" Width="450" VerticalAlignment="Bottom" Margin="15,0,15,20">
             <Button x:Name="btn_Add" Content="Добавить" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Top" Width="140" Height="80" Click="btn_Add_Click"/>
             <Button x:Name="btn_Delete" Content="Удалить" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="140" Height="80" Click="btn_Delete_Click"/>
             <Button x:Name="btn_Edit" Content="Редактировать" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Top" Width="140" Height="80" Click="btn_Edit_Click"/>
         </WrapPanel>
+
         
-        <ScrollViewer Grid.Row="2" Grid.ColumnSpan="2">
-            <TextBlock x:Name="error_info" />
+        <ScrollViewer   Grid.Row="2" Grid.ColumnSpan="2">
+             <TextBlock x:Name="error_info" TextAlignment="Center"/>
         </ScrollViewer>
+        
+        
 
         
 
         <WrapPanel x:Name="admin_btns" Grid.Row="0" Grid.ColumnSpan="2" ItemWidth="150" HorizontalAlignment="Center">
-            <Button x:Name="btnSupsCat" Content="Руководители" Tag="1"   Height="40" Click="btn_ShowCat"/>
-            <Button x:Name="btnOrdCat" Content="Приказы" Tag="2"   Height="40" Click="btn_ShowCat"/>
-            <Button x:Name="btnComCat" Content="Комиссии" Tag="3"   Height="40" Click="btn_ShowCat"/>
-            <Button x:Name="btnRevCat" Content="Рецензенты" Tag="4"   Height="40" Click="btn_ShowCat"/>
-            <Button x:Name="btnSetCat" Content="Нормоконтролеры" Tag="5" Height="40" Click="btn_ShowCat" Grid.ColumnSpan="2"/>
-            <Button x:Name="btnSpecCat" Content="Специальности" Tag="6"  Height="40" Click="btn_ShowCat" Grid.Column="1"/>
-            <Button x:Name="btnChaCat" Content="Председатели ГЭК" Tag="7" Height="40" Click="btn_ShowCat" Grid.Column="1"/>
+            <Button x:Name="btnSupsCat" Content="Руководители" Tag="1"   Height="40" Click="btn_ShowCat" Style="{StaticResource admin_btn}"/>
+            <Button x:Name="btnOrdCat" Content="Приказы" Tag="2"   Height="40" Click="btn_ShowCat" Style="{StaticResource admin_btn}"/>
+            <Button x:Name="btnComCat" Content="Комиссии" Tag="3"   Height="40" Click="btn_ShowCat" Style="{StaticResource admin_btn}"/>
+            <Button x:Name="btnRevCat" Content="Рецензенты" Tag="4"   Height="40" Click="btn_ShowCat" Style="{StaticResource admin_btn}"/>
+            <Button x:Name="btnSetCat" Content="Нормоконтролеры" Tag="5" Height="40" Click="btn_ShowCat" Grid.ColumnSpan="2" Style="{StaticResource admin_btn}"/>
+            <Button x:Name="btnSpecCat" Content="Специальности" Tag="6"  Height="40" Click="btn_ShowCat" Grid.Column="1" Style="{StaticResource admin_btn}"/>
+            <Button x:Name="btnChaCat" Content="Председатели ГЭК" Tag="7" Height="40" Click="btn_ShowCat" Grid.Column="1" Style="{StaticResource admin_btn}"/>
         </WrapPanel>
 
     </Grid>

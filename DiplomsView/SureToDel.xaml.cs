@@ -41,19 +41,19 @@ namespace DiplomsView
             this.title.Text = "Удалить?";
             this.info.Text = id;
         }
-        public SureToDel(ContextDB d, dbExceptionHandler h, Expander ex)
+        public SureToDel(dbExceptionHandler h, Expander ex)
         {
             InitializeComponent();
-            this.db = d;
+            this.db = SingleContext.getContext();
             this.ex_handler = h;
             this.selected = ex;
             FillInfo();
             
         }
-        public SureToDel(ContextDB d, dbExceptionHandler h, string todel_id, int cat_id)
+        public SureToDel(dbExceptionHandler h, string todel_id, int cat_id)
         {
             InitializeComponent();
-            this.db = d;
+            this.db = SingleContext.getContext();
             this.ex_handler = h;
             this.catalog_id = cat_id;
             FillInfo(todel_id);
