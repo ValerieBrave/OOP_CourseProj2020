@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DiplomsView.AddCatElement" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgABAAQAAAgQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AddCatElement.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DiplomsView.AddEditDiplom" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CIJBEAAgCAAQEKAAiZAABBEYAAAAAgQKAAABAgjAWQA=</HashCode>
+      <FileName>AddEditDiplom.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DiplomsView.AddEditFormFiller" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQEgAAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>AddEditFormFiller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiplomsView.App" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiplomsView.Catalog" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAEAAQAAAAQAAAABAAAAAAAAAAACAAAAAEAAA=</HashCode>
+      <FileName>Catalog.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DiplomsView.CatalogFiller" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAQEAAAQAEAAAQAAAAECEAIAAUAAAAAAAA=</HashCode>
+      <FileName>CatalogFiller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiplomsView.DiplomListFiller" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAQAAAAAAAAAgAAAAAACgAAAAAAAAAAAAA=</HashCode>
+      <FileName>DiplomListFiller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiplomsView.EditCatElement" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIQAAQgAAABQBAAAQAAAABAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EditCatElement.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DiplomsView.FilterFiller" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAEAAAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FilterFiller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiplomsView.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CIBBEAAgCAQwEKQAiJAABAEYAgAAAgQAAAARAAjAWQg=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DiplomsView.Command" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIABAAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiplomsView.SingleContext" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>SingleContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiplomsView.Styler" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Styler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiplomsView.Subscriber" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Subscriber.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiplomsView.SureToDel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAAAAIAAAAAAAmBAAAA=</HashCode>
+      <FileName>SureToDel.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DiplomsView.Properties.Resources" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiplomsView.Properties.Settings" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiplomsDB.Class1" Collapsed="true">
+    <Position X="3" Y="4.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DiplomsDB.Models.Chairman" Collapsed="true">
+    <Position X="1.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DiplomsDB.Models.Comission" Collapsed="true">
+    <Position X="4.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DiplomsDB.Models.ContextDB" Collapsed="true">
+    <Position X="5" Y="7.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Events" Collapsed="true" />
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="DiplomsDB.Models.ContextDB.ExceptionDb" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="DiplomsDB.Models.ContextDB.onRevAdd" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="DiplomsDB.Models.ContextDB.onSpecDelete" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="DiplomsDB.Models.ContextDB.onSupAdd" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="DiplomsDB.Models.ContextDB.onRevDelete" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="DiplomsDB.Models.ContextDB.onComUpdate" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="DiplomsDB.Models.ContextDB.onOrdDelete" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="DiplomsDB.Models.ContextDB.onSetDelete" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="DiplomsDB.Models.ContextDB.onSupUpdate" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="DiplomsDB.Models.ContextDB.onRevUpdate" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="DiplomsDB.Models.ContextDB.onDipDelete" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="DiplomsDB.Models.ContextDB.onSpecUpdate" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="DiplomsDB.Models.ContextDB.onChaAdd" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="DiplomsDB.Models.ContextDB.onOrdUpdate" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="DiplomsDB.Models.ContextDB.onComAdd" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="DiplomsDB.Models.ContextDB.onChaUpdate" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="DiplomsDB.Models.ContextDB.onSetUpdate" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="DiplomsDB.Models.ContextDB.onDipUpdate" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="DiplomsDB.Models.ContextDB.onDipAdd" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="DiplomsDB.Models.ContextDB.onOrdAdd" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="DiplomsDB.Models.ContextDB.onSpecAdd" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="DiplomsDB.Models.ContextDB.onSupDelete" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="DiplomsDB.Models.ContextDB.onComDelete" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="DiplomsDB.Models.ContextDB.onChaDelete" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="DiplomsDB.Models.ContextDB.onSetAdd" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DiplomsDB.Models.dbExceptionHandler" Collapsed="true">
+    <Position X="1.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DiplomsDB.Models.Diplom" Collapsed="true">
+    <Position X="3" Y="5.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DiplomsDB.Models.Order" Collapsed="true">
+    <Position X="4.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DiplomsDB.Models.Reviewer" Collapsed="true">
+    <Position X="6.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DiplomsDB.Models.Setter" Collapsed="true">
+    <Position X="1" Y="6.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DiplomsDB.Models.Speciality" Collapsed="true">
+    <Position X="3" Y="6.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DiplomsDB.Models.Supervisor" Collapsed="true">
+    <Position X="4.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

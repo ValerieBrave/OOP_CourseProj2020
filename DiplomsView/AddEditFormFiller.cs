@@ -12,9 +12,9 @@ namespace DiplomsView
     {
         ContextDB db;
         dbExceptionHandler ex_handler;
-        public AddEditFormFiller(ContextDB c, dbExceptionHandler handler)
+        public AddEditFormFiller(dbExceptionHandler handler)
         {
-            db = c;
+            db = SingleContext.getContext();
             ex_handler = handler;
         }
         public void FillAddForm(ComboBox orders, ComboBox spec, ComboBox supers, ComboBox setters, ComboBox revs, ComboBox comission, RadioButton def, ComboBox chair)

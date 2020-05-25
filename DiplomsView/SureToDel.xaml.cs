@@ -34,7 +34,7 @@ namespace DiplomsView
             this.info.Text += "Руководитель: " + to_del.Supervisor_id + '\n';
             this.info.Text += "Рецензент: " + to_del.Reviewer_id + '\n';
             this.info.Text += "Комиссия: " + to_del.Comission_id + '\n';
-            this.info.Text += "Срок предоставления: " + (to_del.Deadline == null? "" : to_del.Deadline.Value.Date.ToString() )+ '\n';
+            this.info.Text += "Срок предоставления: " + (to_del.Deadline == DateTime.MinValue? "" : to_del.Deadline.Value.Date.ToString() )+ '\n';
         }
         private void FillInfo(string id)
         {

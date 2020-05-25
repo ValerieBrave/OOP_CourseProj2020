@@ -61,7 +61,7 @@
             </Grid>
         
         <ScrollViewer  Grid.Row="2" Grid.ColumnSpan="3">
-            <TextBlock x:Name="error_info"  />
+            <TextBlock x:Name="error_info" TextAlignment="Center" />
         </ScrollViewer>
 
     </Grid>

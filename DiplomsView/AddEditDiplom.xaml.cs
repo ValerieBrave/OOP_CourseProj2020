@@ -37,7 +37,7 @@ namespace DiplomsView
             InitializeComponent();
             db = SingleContext.getContext();
             ex_handler = handler;
-            filler = new AddEditFormFiller(this.db, this.ex_handler);
+            filler = new AddEditFormFiller(this.ex_handler);
             filler.FillAddForm(this.order_select,
                             this.spec_select,
                             this.supervisor_select,
@@ -48,16 +48,15 @@ namespace DiplomsView
                             this.chairman_select);
             this.error_info.Text = ex_handler.Protocol;
         }
-
-        public AddEditDiplom(ContextDB c, dbExceptionHandler handler, Expander to_d)
+        public AddEditDiplom(dbExceptionHandler handler, Expander to_d)
         {
             InitializeComponent();
-            db = c;
+            db = SingleContext.getContext();
             ex_handler = handler;
             to_del = to_d;
             edit = true;
             this.btn_Add.Content = "Редактировать";
-            filler = new AddEditFormFiller(this.db, this.ex_handler);
+            filler = new AddEditFormFiller(this.ex_handler);
             filler.FillEditForm(this.to_del,
                             this.order_select,
                             this.spec_select,
@@ -76,7 +75,6 @@ namespace DiplomsView
                             this.mark_select);
             this.error_info.Text = ex_handler.Protocol;
         }
-
         private void Add()
         {
             bool correct = true;
@@ -192,20 +190,24 @@ namespace DiplomsView
                         };
                         this.db.AddDiplom(to_add);
                         //---------SENDING MAIL
-                        if(!d_sup.Mail.Equals(""))
+                        if(d_sup.Mail!=null)
                         {
-                            MailAddress mailAddressFrom = new MailAddress("smw60@mail.ru", "Зав.каф. ИСиТ");
-                            MailAddress mailAddressTo = new MailAddress(d_sup.Mail);
-                            MailMessage message = new MailMessage(mailAddressFrom, mailAddressTo);
-                            message.Body = "help pls a";
-                            SmtpClient smtpClient = new SmtpClient();
-                            smtpClient.Host = "smtp.mail.ru";
-                            smtpClient.Port = 587;
-                            smtpClient.EnableSsl = true;
-                            smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-                            smtpClient.UseDefaultCredentials = false;
-                            smtpClient.Credentials = new NetworkCredential(mailAddressFrom.Address, password);
-                            smtpClient.Send(message);
+                            if(!d_sup.Mail.Equals(""))
+                            {
+                                MailAddress mailAddressFrom = new MailAddress("smw60@mail.ru", "Зав.каф. ИСиТ");
+                                MailAddress mailAddressTo = new MailAddress(d_sup.Mail);
+                                MailMessage message = new MailMessage(mailAddressFrom, mailAddressTo);
+                                message.Body = "Новый дипломник - " + to_add.Student_name;
+                                SmtpClient smtpClient = new SmtpClient();
+                                smtpClient.Host = "smtp.mail.ru";
+                                smtpClient.Port = 587;
+                                smtpClient.EnableSsl = true;
+                                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                                smtpClient.UseDefaultCredentials = false;
+                                smtpClient.Credentials = new NetworkCredential(mailAddressFrom.Address, password);
+                                smtpClient.Send(message);
+                            }
+                            
                         }
                         
                     }
@@ -217,7 +219,6 @@ namespace DiplomsView
                 }
             }
         }
-
         private void Edit()
         {
             bool correct = true;
@@ -329,7 +330,6 @@ namespace DiplomsView
                 }
             }
         }
-
         public void RefreshForm(string id)
         {
             filler.FillAddForm(this.order_select,
@@ -341,7 +341,6 @@ namespace DiplomsView
                             this.form_p_select,
                             this.chairman_select);
         }
-
         private void btn_Add_Click(object sender, RoutedEventArgs e)
         {
             if (!edit) Add();

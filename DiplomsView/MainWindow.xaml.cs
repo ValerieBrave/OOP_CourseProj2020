@@ -26,18 +26,15 @@ namespace DiplomsView
         DiplomListFiller list_filler;
         FilterFiller filter_filler;
         
-        
         public MainWindow()
         {
             InitializeComponent();
             //----creating objects-------
             db = SingleContext.getContext();
-            //db = new ContextDB();
             ex_handler = new dbExceptionHandler();
             list_filler = new DiplomListFiller(this.diplomsList, db, ex_handler);
             filter_filler = new FilterFiller(this.filterGrid, db);
             //----subscribing--------------------------------------------------
-            
             Subscriber.Subscribe(this);
             //----rendering---------------------------------------------------
             list_filler.Fill();
@@ -143,24 +140,21 @@ namespace DiplomsView
             foreach (var dip in dips) this.diplomsList.Items.Add(list_filler.getExpander((Diplom)dip));
             this.diplomsList.Items.Refresh();
         }
-
         private void btn_Add_Click(object sender, RoutedEventArgs e)
         {
             AddEditDiplom add_form = new AddEditDiplom(ex_handler);
             Subscriber.Subscribe(add_form);
             add_form.Show();
         }
-
         private void btn_Edit_Click(object sender, RoutedEventArgs e)
         {
             if (this.diplomsList.SelectedItem != null)
             {
-                AddEditDiplom edit_dip = new AddEditDiplom(this.db, this.ex_handler, (Expander)this.diplomsList.SelectedItem);
+                AddEditDiplom edit_dip = new AddEditDiplom(this.ex_handler, (Expander)this.diplomsList.SelectedItem);
                 Subscriber.Subscribe(edit_dip);
                 edit_dip.ShowDialog();
             }
         }
-
         private void btn_Delete_Click(object sender, RoutedEventArgs e)
         {
             if (this.diplomsList.SelectedItem != null)
@@ -168,6 +162,44 @@ namespace DiplomsView
                 SureToDel sure_del = new SureToDel(ex_handler, (Expander)this.diplomsList.SelectedItem);
                 sure_del.ShowDialog();
             }
+        }
+        public void RefreshList(string topic)
+        {
+            try
+            {
+                var dips = this.db.Database.SqlQuery<Diplom>("select * from Diploms");
+                this.diplomsList.Items.Clear();
+                foreach (var dip in dips) this.diplomsList.Items.Add(list_filler.getExpander((Diplom)dip));
+                this.diplomsList.Items.Refresh();
+            }
+            catch (Exception ex)
+            {
+                ex_handler.WriteProtocol(ex);
+            }
+        }
+        public void RefreshFilter(string id)
+        {
+            filter_filler.Fill(this.order_Select, this.spec_Select, this.supervisor_Select, this.setter_Select, this.reviewer_Select, this.comission_Select, this.form_p_Select);
+        }
+        private void btn_ShowCat(object sender, RoutedEventArgs e)
+        {
+            Catalog cat = new Catalog(this.ex_handler, Int32.Parse(((Button)sender).Tag.ToString()));
+            Subscriber.Subscribe(cat);
+            cat.ShowDialog();
+        }
+        private void adm_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (this.admin_btns.IsEnabled)
+            {
+                this.admin_btns.IsEnabled = false;
+                this.admin_btns.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                this.admin_btns.IsEnabled = true;
+                this.admin_btns.Visibility = Visibility.Visible;
+            }
+            this.UpdateLayout();
         }
 
         public void ShowProtocol(string pr)
@@ -278,49 +310,7 @@ namespace DiplomsView
             this.error_info.Text = "Добавлен председатель ГЭК " + id + '\n' + this.error_info.Text;
         }
 
-        public void RefreshList(string topic)
-        {
-            try
-            {
-                var dips = this.db.Database.SqlQuery<Diplom>("select * from Diploms");
-                this.diplomsList.Items.Clear();
-                foreach (var dip in dips) this.diplomsList.Items.Add(list_filler.getExpander((Diplom)dip));
-                this.diplomsList.Items.Refresh();
-            }
-            catch(Exception ex)
-            {
-                ex_handler.WriteProtocol(ex);
-            }
-        }
-
-        public void RefreshFilter(string id)
-        {
-            filter_filler.Fill(this.order_Select, this.spec_Select, this.supervisor_Select, this.setter_Select, this.reviewer_Select, this.comission_Select, this.form_p_Select);
-        }
-
         
-
-        private void btn_ShowCat(object sender, RoutedEventArgs e)
-        {
-            Catalog cat = new Catalog(this.ex_handler, Int32.Parse(((Button)sender).Tag.ToString()));
-            Subscriber.Subscribe(cat);
-            cat.ShowDialog();
-        }
-
-        private void adm_Executed(object sender, ExecutedRoutedEventArgs e)
-        {
-            if(this.admin_btns.IsEnabled)
-            {
-                this.admin_btns.IsEnabled = false;
-                this.admin_btns.Visibility = Visibility.Hidden;
-            }
-            else
-            {
-                this.admin_btns.IsEnabled = true;
-                this.admin_btns.Visibility = Visibility.Visible;
-            }
-            this.UpdateLayout();
-        }
     }
     public static class Command
     {
